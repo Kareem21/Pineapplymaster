@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { CssVarsProvider } from '@mui/joy';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import './App.css'; // If you still want separate app-level CSS
+import Navbar from './components/Navbar/Navbar.jsx';  // Changed from Navbar
+import Footer from './components/Footer/Footer.jsx';  // Changed from Footer
 import theme from './Theme';
-
-
-// Pages
-import Home from './pages/Home/home.jsx';
+import Home from './pages/Home/home.jsx';  // Matches your current import
 
 function Contact() {
     return <h1 style={{ padding: '50px' }}>Contact Page</h1>;
