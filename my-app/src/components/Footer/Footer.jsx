@@ -1,7 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import instagramLogo from '../../assets/instagram-logo.png';
-import facebookLogo from '../../assets/facebook-logo.png';
+import { Instagram, Facebook } from "@mui/icons-material";
 
 function Footer() {
     return (
@@ -31,8 +30,8 @@ function Footer() {
                     <div className="footer-column">
                         <h3>Contact us</h3>
                         <ul>
-                            <li><img src={instagramLogo} alt="Instagram" />Instagram</li>
-                            <li><img src={facebookLogo} alt="Facebook" />Facebook</li>
+                            <li><Instagram /> Instagram</li>
+                            <li><Facebook /> Facebook</li>
                             <li>Email: kareemy9000@gmail.com</li>
                         </ul>
                     </div>
