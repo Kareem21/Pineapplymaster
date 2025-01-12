@@ -1,49 +1,47 @@
+// home.jsx
 import React from 'react';
 import { Typography, Box, Button } from '@mui/joy';
 import Typewriter from 'typewriter-effect';
 import './Home.css';
 
-// Import your custom components:
-import Features from './Features.jsx';
-import HowItWorks from './Howitworks.jsx';
-import PricingComponent from './PricingComponent.jsx';
-import CompaniesCarousel from './CompaniesCarousel.jsx';
-import CardComponent from './CardComponent'; // if needed in this file
+/** Custom Components */
+import Features from './Features';
+import HowItWorks from './HowItWorks';
+import PricingComponent from './PricingComponent';
+import CompaniesCarousel from './CompaniesCarousel';
+import ComparisonSection from './ComparisonSection';
 
 const Home = () => {
     return (
-        <>
+        <Box sx={{ width: '100%', overflow: 'hidden' }}>
             {/* ========== HERO SECTION ========== */}
-            <div className="home-container">
-                <div className="content-overlay">
+            <div className="home-hero-container">
+                <div className="home-hero-overlay">
                     <Box
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            justifyContent: 'center',
                             textAlign: 'center',
                             padding: '2rem',
                         }}
                     >
+                        {/* Hero Heading */}
                         <Typography
                             variant="h3"
-                            color="appTheme"
-                            component="h1"
-                            gutterBottom
                             sx={{
-                                fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
-                                marginBottom: '0rem',
-                                width: '100%',
-                                padding: '1rem',
-                                boxSizing: 'border-box',
+                                fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem' },
+                                marginBottom: 0,
+                                fontWeight: 700,
+                                color: '#492d6f',
                             }}
                         >
                             Your personal A.I recruiter
                         </Typography>
 
-                        <Box sx={{ minHeight: '4rem' }}>
-                            <Typography variant="h2" component="h2" gutterBottom>
+                        {/* Subline with Typewriter */}
+                        <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
+                            <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>
                                 <Typewriter
                                     options={{
                                         strings: [
@@ -59,15 +57,14 @@ const Home = () => {
                             </Typography>
                         </Box>
 
+                        {/* Beta text */}
                         <Typography
                             variant="h3"
-                            component="h3"
                             sx={{
-                                marginTop: '3rem',
-                                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                                color: 'A',
+                                marginTop: '2rem',
+                                fontSize: '1.5rem',
+                                fontWeight: 600,
+                                color: '#492d6f',
                             }}
                         >
                             Auto-applier currently in Beta
@@ -75,16 +72,18 @@ const Home = () => {
 
                         <Box sx={{ marginTop: '2rem' }}>
                             <Button
-                                color="appTheme"
                                 variant="solid"
-                                className="cta-button"
+                                className="home-cta-button"
                                 sx={{
                                     fontSize: '1.2rem',
                                     padding: '1rem 2rem',
-                                    transition: 'all 0.3s ease',
+                                    backgroundColor: '#f1f963',
+                                    color: '#492d6f',
+                                    borderRadius: '8px',
                                     '&:hover': {
+                                        backgroundColor: '#ffd700',
                                         transform: 'translateY(-3px)',
-                                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                                     },
                                 }}
                             >
@@ -95,11 +94,10 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* ========== FULL-WIDTH FEATURES SECTION ========== */}
+            {/* ========== FEATURES ========== */}
             <Box
                 sx={{
-                    width: '100vw',
-                    minHeight: '100vh',
+                    width: '100%',
                     margin: '0 auto',
                     padding: { xs: '2rem', md: '4rem' },
                     backgroundColor: '#f1f963',
@@ -110,13 +108,13 @@ const Home = () => {
                 <Features />
             </Box>
 
-            {/* ========== BANNER (FULL-WIDTH IMAGE) ========== */}
+            {/* ========== BANNER IMAGE ========== */}
             <Box
                 component="img"
                 src="https://i.ibb.co/Gkb8WFT/robot-yellow.png"
                 alt="Banner"
                 sx={{
-                    width: '100vw',
+                    width: '100%',
                     height: 'auto',
                     display: 'block',
                 }}
@@ -125,12 +123,15 @@ const Home = () => {
             {/* ========== HOW IT WORKS ========== */}
             <HowItWorks />
 
-            {/* ========== PRICING SECTION ========== */}
+            {/* ========== PRICING ========== */}
             <PricingComponent />
 
             {/* ========== LOGO CAROUSEL ========== */}
             <CompaniesCarousel />
-        </>
+
+            {/* ========== COMPARISON SECTION ========== */}
+            <ComparisonSection />
+        </Box>
     );
 };
 

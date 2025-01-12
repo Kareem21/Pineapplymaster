@@ -1,34 +1,35 @@
+// App.jsx
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { CssVarsProvider } from '@mui/joy';
-import Navbar from './components/Navbar/Navbar';  // Changed from Navbar
-import Footer from './components/Footer/Footer';  // Changed from Footer
+import { CssVarsProvider, Box } from '@mui/joy';
+import Navbar from './components/Navbar/Navbar.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import theme from './Theme';
-import Home from './pages/Home/home.jsx';  // Matches your current import
-
-function Contact() {
-    return <h1 style={{ padding: '50px' }}>Contact Page</h1>;
-}
+import Home from './pages/Home/home.jsx';
+import Contact from './pages/Contact/Contact.jsx';
+import './GlobalStyles.css';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLogin = () => setIsLoggedIn(true);
-    const handleLogout = () => setIsLoggedIn(false);
-
     return (
         <CssVarsProvider theme={theme}>
-            <div className="app">
-                <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-                <main className="main-content">
+            <Box className="layout-root" sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                <Box component="header" sx={{ width: '100%', backgroundColor: 'white' }}>
+                    <Navbar isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
+                </Box>
+
+                <Box component="main" sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/contact" element={<Contact />} />
-                        {/* Additional routes */}
                     </Routes>
-                </main>
-                <Footer />
-            </div>
+                </Box>
+
+                <Box component="footer" sx={{ width: '100%' }}>
+                    <Footer />
+                </Box>
+            </Box>
         </CssVarsProvider>
     );
 }

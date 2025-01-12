@@ -1,35 +1,28 @@
+
+// Features.jsx
 import React from 'react';
-import './Features.css';
 import { Box, Typography } from '@mui/joy';
 
 const Features = () => {
     return (
-        <div className="features-container">
+        <Box className="features-container" sx={{ width: '100%', overflow: 'hidden' }}>
             <Box
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: 2,
-                    position: 'relative',
                     width: '100%',
-                    maxWidth: '1200px',
+                    maxWidth: '1400px',
                     margin: '0 auto',
+                    padding: { xs: '2rem', md: '4rem' },
                 }}
             >
                 <Typography
-                    variant="h3"
+                    variant="h2"
                     color="appTheme"
-                    component="h1"
-                    gutterBottom
+                    component="h2"
                     sx={{
-                        fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
-                        marginBottom: '1rem',
-                        padding: '1rem',
-                        boxSizing: 'border-box',
+                        fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
+                        marginBottom: '3rem',
                         textAlign: 'center',
-                        width: '100%',
+                        fontWeight: 'bold',
                     }}
                 >
                     Features
@@ -37,66 +30,66 @@ const Features = () => {
 
                 <Box
                     sx={{
-                        display: 'flex',
-                        flexDirection: { xs: 'column', md: 'row' },
-                        justifyContent: 'center',
-                        alignItems: 'stretch',
-                        width: '100%',
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
                         gap: '2rem',
+                        width: '100%',
                     }}
                 >
-                    <Box
-                        sx={{
-                            flex: 1,
-                            textAlign: 'center',
-                            maxWidth: { xs: '100%', md: '300px' },
-                            margin: '0 auto',
-                        }}
-                    >
-                        <Typography variant="h4" gutterBottom sx={{ color: 'appTheme' }}>
-                            <b>One click to automatically apply</b>
-                        </Typography>
-                        <Typography variant="body1" sx={{ color: 'appTheme' }}>
-                            With the click of a button, you can apply to 100s or 1000s of job
-                            applications that are relevant for you.
-                        </Typography>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            flex: 1,
-                            textAlign: 'center',
-                            maxWidth: { xs: '100%', md: '300px' },
-                            margin: '0 auto',
-                        }}
-                    >
-                        <Typography variant="h4" gutterBottom sx={{ color: 'appTheme' }}>
-                            <b>Never miss a job posting again</b>
-                        </Typography>
-                        <Typography variant="body1" sx={{ color: 'appTheme' }}>
-                            Upload your CV once and let Pineapply find the best roles for you
-                            by matching your skills and experience across all sources.
-                        </Typography>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            flex: 1,
-                            textAlign: 'center',
-                            maxWidth: { xs: '100%', md: '300px' },
-                            margin: '0 auto',
-                        }}
-                    >
-                        <Typography variant="h4" gutterBottom sx={{ color: 'appTheme' }}>
-                            <b>Find the most up to date jobs</b>
-                        </Typography>
-                        <Typography variant="body1" sx={{ color: 'appTheme' }}>
-                            Pineapply will scan all the sources for listings every hour!
-                        </Typography>
-                    </Box>
+                    {[
+                        {
+                            title: 'One click to automatically apply',
+                            desc: 'With the click of a button, you can apply to 100s or 1000s of job applications that are relevant for you.'
+                        },
+                        {
+                            title: 'Never miss a job posting again',
+                            desc: 'Upload your CV once and let Pineapply find the best roles for you by matching your skills and experience across all sources.'
+                        },
+                        {
+                            title: 'Find the most up to date jobs',
+                            desc: 'Pineapply will scan all the sources for listings every hour!'
+                        }
+                    ].map((feature, index) => (
+                        <Box
+                            key={index}
+                            sx={{
+                                backgroundColor: 'white',
+                                borderRadius: '16px',
+                                padding: '2rem',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-5px)',
+                                    boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
+                                },
+                            }}
+                        >
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    color: 'appTheme',
+                                    marginBottom: '1rem',
+                                    fontWeight: 'bold',
+                                    fontSize: { xs: '1.5rem', md: '1.75rem' }
+                                }}
+                            >
+                                {feature.title}
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    color: 'text.secondary',
+                                    fontSize: { xs: '1rem', md: '1.1rem' },
+                                    lineHeight: 1.6
+                                }}
+                            >
+                                {feature.desc}
+                            </Typography>
+                        </Box>
+                    ))}
                 </Box>
             </Box>
-        </div>
+        </Box>
     );
 };
 

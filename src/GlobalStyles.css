@@ -1,49 +1,38 @@
-/* Global reset + box-sizing */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Root-level typography & brand defaults */
-html, body {
+html {
+    overflow-x: hidden;
     width: 100%;
-    min-height: 100%;
-    font-family: 'Inter', sans-serif; /* or your preferred font */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
     color: #333;
-    background-color: #fff; /* Adjust if you want a background */
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
-/* Heading styles */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif; /* Match body or use a heading font */
-    color: var(--joy-palette-appTheme-800, #3e175f); /* fallback if custom prop not loaded */
-    font-weight: 700;
-    line-height: 1.2;
+#root {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    font-size: 3rem; /* Adjust as needed for your project */
+.layout-root {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
-h2 {
-    font-size: 2.5rem;
-}
-
-h3 {
-    font-size: 2rem;
-}
-
-/* Paragraph styles */
-p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-/* Utility classes if needed */
 .container {
     width: 100%;
     max-width: 1200px;
