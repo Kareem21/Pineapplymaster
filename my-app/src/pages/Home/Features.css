@@ -1,19 +1,23 @@
 /* Base Styles */
 .features-container {
-    width: 100%;
+    width: 100vw; /* Full viewport width */
     min-height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #FFD700; /* Yellow background */
-    padding: 40px 20px;
+    padding: 40px 0; /* Remove horizontal padding */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .features-content {
     text-align: center;
-    max-width: 1200px;
     width: 100%;
+    max-width: 100%; /* Allow content to take full width */
+    padding: 0 20px; /* Add padding to content instead */
+    box-sizing: border-box;
 }
 
 .features-title {
