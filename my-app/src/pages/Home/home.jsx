@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar.jsx';
-import Footer from '../../components/Footer/Footer.jsx';
-import {Stack, Typography, Box, Input, Button, CircularProgress} from '@mui/joy';
+import React from 'react';
+import { Typography, Box, Button } from '@mui/joy';
 import Typewriter from 'typewriter-effect';
 import './Home.css';
-import CardComponent from './CardComponent.jsx';
-import Features from './Features.jsx'
-import { Link } from 'react-router-dom';
-
-
-
 
 const Home = () => {
-
     return (
-        <>
-            <Stack sx={{ minHeight: '100vh' }}>
-
+        <div className="home-container">
+            <div className="content-overlay">
                 <Box sx={{
-                    flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -30,7 +19,7 @@ const Home = () => {
                         Your personal A.I recruiter
                     </Typography>
                     <Box sx={{ minHeight: '4rem' }}>
-                        <Typography variant="h2" component="h1" gutterBottom>
+                        <Typography variant="h2" component="h2" gutterBottom>
                             <Typewriter
                                 options={{
                                     strings: [
@@ -45,55 +34,44 @@ const Home = () => {
                             />
                         </Typography>
                     </Box>
-
-
                     <Typography
-                        variant="h1"
-                        component="h1"
+                        variant="h3"
+                        component="h3"
                         sx={{
-                            marginTop: '2rem',
-                            fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
+                            marginTop: '3rem',
+                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                             fontWeight: 'bold',
                             textAlign: 'center',
+                            color: 'A',
                         }}
                     >
-                        <Typography
-                            variant="h3"
-                            component="h3"
-
+                        Auto-applier currently in Beta, accepting users soon.
+                    </Typography>
+                    <Box sx={{ marginTop: '2rem' }}>
+                        <Button
+                            color='appTheme'
+                            variant='solid'
+                            className="cta-button"
                             sx={{
-                                marginTop: '3rem',
-                                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                                color: 'A',
+                                fontSize: '1.2rem',
+                                padding: '1rem 2rem',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-3px)',
+                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                },
                             }}
                         >
-                            Auto-applier currently in Beta, accepting users soon.
-                        </Typography>
-                    </Typography>
-                </Box>
-                <Stack direction="row" justifyContent="center">
-                    <Box maxWidth={400} padding={2}>
-                            <Button
-                                color='appTheme'
-                                variant='solid'
-                                fullWidth
-                                className="cta-button"
-                                sx={{
-                                    fontSize: '1.2rem',
-                                    padding: '1rem 2rem',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'translateY(-3px)',
-                                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                                    },
-                                }}
-                            >
-                                Try Pineapply here
-                            </Button>
+                            Try Pineapply here
+                        </Button>
                     </Box>
-                </Stack>
+                </Box>
+            </div>
+        </div>
+    );
+};
+
+export default Home;
 
                 <Box sx={{ padding: { xs: '2rem', md: '4rem' } }}>
                     <Typography
