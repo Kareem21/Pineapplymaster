@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { CssVarsProvider } from '@mui/joy';
-import Navbar from './components/Navbar/Navbar.jsx';  // Changed from Navbar
-import Footer from './components/Footer/Footer.jsx';  // Changed from Footer
+import Navbar from './components/Navbar/Navbar';  // Changed from Navbar
+import Footer from './components/Footer/Footer';  // Changed from Footer
 import theme from './Theme';
 import Home from './pages/Home/home.jsx';  // Matches your current import
 
