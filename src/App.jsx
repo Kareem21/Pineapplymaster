@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { CssVarsProvider } from '@mui/joy';
-import './App.css'; // If you still want separate app-level CSS
-import theme from './Theme';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import './App.css'; // If you still want separate app-level CSS
+import theme from './Theme';
+
 
 // Pages
 import Home from './pages/Home/home.jsx';
