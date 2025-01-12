@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
-import PocketBase from 'pocketbase';
+import { default as PocketBase } from 'pocketbase';
 
 const pb = new PocketBase('https://YOUR-POCKETBASE-URL');
 // Replace with your actual PocketBase URL

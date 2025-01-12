@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.css';
-import Typed from 'react-typed';
+import { Typed } from 'react-typed';
 
 function Home() {
     return (

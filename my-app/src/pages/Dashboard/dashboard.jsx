@@ -1,8 +1,8 @@
 import React from 'react';
 import './dashboard.css';
-import JobsInQueue from './JobsInQueue.jsx';
-import CreditsCard from './CreditsCard.jsx';
-import PreferredTitlesCard from './PreferredTitlesCard.jsx';
+import { JobsInQueue } from './JobsInQueue.jsx';
+import { CreditsCard } from './CreditsCard.jsx';
+import { PreferredTitlesCard } from './PreferredTitlesCard.jsx';
 
 function Dashboard() {
     return (
