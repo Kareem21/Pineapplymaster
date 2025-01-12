@@ -1,0 +1,59 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    background-color: #f5efff; /* light-ish purple */
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #dcd0f7;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left .logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #6b38f3;
+    text-decoration: none;
+}
+
+.nav-center a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #4b2db6;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: 1px solid #4b2db6;
+    color: #4b2db6;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.create-acc-btn {
+    background-color: #a475f9;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.beta-btn {
+    background-color: #e6d4ff;
+    border: none;
+    color: #4b2db6;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: not-allowed; /* non-clickable */
+}
