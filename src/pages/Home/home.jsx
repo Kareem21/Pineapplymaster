@@ -6,7 +6,7 @@ import './home.css';
 
 /** Custom Components */
 import Features from './Features';
-import HowItWorks from './HowItWorks';
+import HowItWorks from './Howitworks';
 import PricingComponent from './PricingComponent';
 import CompaniesCarousel from './CompaniesCarousel';
 import ComparisonSection from './ComparisonSection';
@@ -77,11 +77,11 @@ const Home = () => {
                                 sx={{
                                     fontSize: '1.2rem',
                                     padding: '1rem 2rem',
-                                    backgroundColor: '#f1f963',
+                                    backgroundColor: '#f8dc14',
                                     color: '#492d6f',
                                     borderRadius: '8px',
                                     '&:hover': {
-                                        backgroundColor: '#ffd700',
+                                        backgroundColor: '#f8dc14',
                                         transform: 'translateY(-3px)',
                                         boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                                     },
@@ -100,7 +100,7 @@ const Home = () => {
                     width: '100%',
                     margin: '0 auto',
                     padding: { xs: '2rem', md: '4rem' },
-                    backgroundColor: '#f1f963',
+                    backgroundColor: '#f8dc14',
                     position: 'relative',
                     overflow: 'hidden',
                 }}
