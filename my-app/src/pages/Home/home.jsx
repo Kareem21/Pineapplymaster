@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.css';
+import Typewriter from 'typewriter-effect';
 
 function Home() {
     return (
@@ -7,8 +8,18 @@ function Home() {
             {/* HERO SECTION */}
             <section className="hero-section">
                 <div className="hero-text">
-                    <h1>Welcome to Pineapply AI</h1>
-
+                    <h1>Your personal A.I Recruiter</h1>
+                    <Typewriter
+                        options={{
+                            strings: [
+                                'Streamline your job search',
+                                'Increase your chance of getting a job by 6x',
+                                'Automatically apply to relevant jobs'
+                            ],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                    />
                 </div>
             </section>
 
