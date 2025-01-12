@@ -1,0 +1,63 @@
+.home-container {
+    font-family: sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 60vh;
+    background: linear-gradient(135deg, #cebaf9 0%, #f1e7ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section .hero-text h1 {
+    font-size: 3rem;
+    color: #4b2db6;
+    margin-bottom: 20px;
+}
+
+.hero-section .hero-text .Typed {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Features Section */
+.features-section {
+    position: relative;
+    background-color: #faf8ff;
+    padding: 60px 20px;
+    /* We'll overlay a big banner background if you want:
+       background-image: url('YOUR-FEATURES-BANNER.jpg');
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+    */
+}
+
+.features-header h2 {
+    text-align: center;
+    color: #4b2db6;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.features-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 8px;
+    flex: 0 0 300px;
+    text-align: center;
+    color: #4b2db6;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

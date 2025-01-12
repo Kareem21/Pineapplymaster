@@ -1,6 +1,5 @@
 import React from 'react';
 import './home.css';
-import { Typed } from 'react-typed';
 
 function Home() {
     return (
@@ -9,16 +8,7 @@ function Home() {
             <section className="hero-section">
                 <div className="hero-text">
                     <h1>Welcome to Pineapply AI</h1>
-                    <Typed
-                        strings={[
-                            "Streamline your Dubai Job Search...",
-                            "Auto-apply for top positions...",
-                            "Your personal AI recruiter."
-                        ]}
-                        typeSpeed={50}
-                        backSpeed={30}
-                        loop
-                    />
+
                 </div>
             </section>
 
