@@ -1,71 +1,75 @@
-.home-container {
-    font-family: sans-serif;
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+body {
+    background: repeating-linear-gradient(to bottom, #ffffff, #d0c0ff 50%, #ffffff 100%);
+    background-size: 100% 200vh;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
 
-/* Hero Section */
-.hero-section {
-    height: 100vh;
-    background: linear-gradient(135deg, #cebaf9 0%, #f1e7ff 100%);
+/*0: '#CCD3DD',*/
+/*100: '#B5BCCE',*/
+/*200: '#9FA3BE',*/
+/*300: '#8888AF',*/
+/*400: '#72719F',*/
+/*500: '#635B8F',*/
+/*600: '#55447F',*/
+/*700: '#492D6F',*/
+/*800: '#3E175F',*/
+/*900: '#35004E',*/
+.container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
+    height: 100vh; /* Adjust height as needed */
     text-align: center;
+    padding: 20px;
+}
+.text-container {
+    max-width: 1200px; /* Adjust width as needed */
+}
+h1 {
+    font-size: 4em; /* Adjust font-size as needed /
+font-weight: bold;
+margin: 0.5em 0; / Adjust spacing as needed */
+}
+p {
+    font-size: 1.2em; /* Adjust font-size as needed /
+margin-bottom: 2em; / Adjust spacing as needed */
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+.cta-button {
+    padding: 1em 2em; /* Adjust padding as needed /
+font-size: 1em; / Adjust font-size as needed /
+background-color: #000; / Adjust color as needed /
+color: #fff; / Adjust text color as needed */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #333; /* Adjust hover color as needed */
 }
 
-.hero-section .hero-text {
-    max-width: 800px;
-    padding: 0 20px;
+.cta-button {
+    transition: all 0.3s ease !important;
 }
 
-.hero-section .hero-text h1 {
-    font-size: 3.5rem;
-    color: #4b2db6;
-    margin-bottom: 30px;
+.cta-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-.hero-section .Typewriter {
-    font-size: 1.5rem;
-    color: #333;
-    height: 2em;
+/* If the CardComponent is not applying these styles, you might need to add a class to it and use these styles */
+.card-component {
+    transition: all 0.3s ease !important;
+    background-color: purple !important; /* Ensure the background stays purple */
 }
 
-/* Features Section */
-.features-section {
-    position: relative;
-    background-color: #faf8ff;
-    padding: 60px 20px;
-    /* We'll overlay a big banner background if you want:
-       background-image: url('YOUR-FEATURES-BANNER.jpg');
-       background-size: cover;
-       background-position: center;
-       background-repeat: no-repeat;
-    */
-}
-
-.features-header h2 {
-    text-align: center;
-    color: #4b2db6;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-}
-
-.features-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.feature-card {
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 30px;
-    border-radius: 8px;
-    flex: 0 0 300px;
-    text-align: center;
-    color: #4b2db6;
-    font-weight: bold;
-    font-size: 1.2rem;
+.card-component:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
 }
