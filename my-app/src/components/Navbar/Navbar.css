@@ -1,59 +1,124 @@
 .navbar {
-    width: 100%;
-    display: flex;
-    background-color: #f5efff; /* light-ish purple */
-    padding: 10px 20px;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #dcd0f7;
+    background-color: #f5efff;
+    height: 80px;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav-left .logo {
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.logo {
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #6b38f3;
     text-decoration: none;
 }
 
-.nav-center a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #4b2db6;
+.nav-elements ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.nav-elements ul li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.nav-elements ul a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b2db6;
+    text-decoration: none;
+}
+
+.logout-btn, .create-acc-btn, .beta-btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .logout-btn {
     background-color: transparent;
     border: 1px solid #4b2db6;
     color: #4b2db6;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
 }
 
 .create-acc-btn {
     background-color: #a475f9;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
     color: #fff;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .beta-btn {
     background-color: #e6d4ff;
     border: none;
     color: #4b2db6;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: not-allowed; /* non-clickable */
+    cursor: not-allowed;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-elements {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        background-color: #f5efff;
+        width: 0px;
+        height: calc(100vh - 80px);
+        transition: all 0.3s ease-in;
+        overflow: hidden;
+    }
+
+    .nav-elements.active {
+        width: 270px;
+    }
+
+    .nav-elements ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-elements ul li {
+        margin-right: unset;
+        margin-top: 22px;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #4b2db6;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .menu-icon .bar.change:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-icon .bar.change:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon .bar.change:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
 }
