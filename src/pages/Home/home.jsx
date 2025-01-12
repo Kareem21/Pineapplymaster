@@ -2,7 +2,7 @@
 import React from 'react';
 import { Typography, Box, Button } from '@mui/joy';
 import Typewriter from 'typewriter-effect';
-import './Home.css';
+import './home.css';
 
 /** Custom Components */
 import Features from './Features';
