@@ -1,0 +1,81 @@
+.features-container {
+    width: 100vw;
+    min-height: 100vh; /* or remove if you want auto height */
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd700; /* bright yellow to match your theme */
+}
+
+/* Optional: if you want smaller screens to not overflow, you can adjust. */
+@media (max-width: 768px) {
+    .features-container {
+        min-height: auto;
+    }
+}
+
+/* Inner content container if you need it.
+   Notice we’re not restricting max-width if you truly want full width.
+   But if you DO want a max content width for the text, keep max-width. */
+.features-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.features-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--joy-palette-appTheme-800, #3e175f);
+    margin-bottom: 2rem;
+}
+
+/* Grid of Features */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Feature Item styling for a modern look */
+.feature-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feature-item h2 {
+    font-size: 1.5rem;
+    color: #555e68;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #555e68;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .features-container {
+        width: 100%; /* Avoid horizontal scrolling on small screens */
+        min-height: auto; /* If you'd rather let it expand naturally */
+    }
+
+    .features-title {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,52 @@
+/* Global reset + box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root-level typography & brand defaults */
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Inter', sans-serif; /* or your preferred font */
+    color: #333;
+    background-color: #fff; /* Adjust if you want a background */
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif; /* Match body or use a heading font */
+    color: var(--joy-palette-appTheme-800, #3e175f); /* fallback if custom prop not loaded */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3rem; /* Adjust as needed for your project */
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+/* Paragraph styles */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Utility classes if needed */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

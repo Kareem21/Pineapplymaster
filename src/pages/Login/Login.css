@@ -1,0 +1,47 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #f1e7ff 0%, #fff 100%);
+    height: 80vh;
+}
+
+.login-box {
+    background-color: #fff;
+    border: 2px solid #dcd0f7;
+    border-radius: 8px;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #4b2db6;
+}
+
+.google-btn,
+.magic-link-btn {
+    background-color: #6b38f3;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.separator {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #999;
+}
+
+.login-box input[type="email"] {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}

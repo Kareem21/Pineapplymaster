@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.home-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*0: '#CCD3DD',*/
+/*100: '#B5BCCE',*/
+/*200: '#9FA3BE',*/
+/*300: '#8888AF',*/
+/*400: '#72719F',*/
+/*500: '#635B8F',*/
+/*600: '#55447F',*/
+/*700: '#492D6F',*/
+/*800: '#3E175F',*/
+/*900: '#35004E',*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+    text-align: center;
+    padding: 20px;
+}
+.text-container {
+    max-width: 1200px; /* Adjust width as needed */
+}
+h1 {
+    font-size: 4em; /* Adjust font-size as needed /
+font-weight: bold;
+margin: 0.5em 0; / Adjust spacing as needed */
+}
+p {
+    font-size: 1.2em; /* Adjust font-size as needed /
+margin-bottom: 2em; / Adjust spacing as needed */
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+.cta-button {
+    padding: 1em 2em; /* Adjust padding as needed /
+font-size: 1em; / Adjust font-size as needed /
+background-color: #000; / Adjust color as needed /
+color: #fff; / Adjust text color as needed */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #333; /* Adjust hover color as needed */
+}
+
+.cta-button {
+    transition: all 0.3s ease !important;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* If the CardComponent is not applying these styles, you might need to add a class to it and use these styles */
+.card-component {
+    transition: all 0.3s ease !important;
+    background-color: purple !important; /* Ensure the background stays purple */
+}
+
+.card-component:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+}

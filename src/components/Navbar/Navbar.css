@@ -1,0 +1,16 @@
+/* Mobile drawer style overrides (if needed) */
+.drawer-content {
+    background-color: white;
+    box-shadow: none;
+}
+
+.drawer-content button {
+    width: 100%;
+    text-align: left;
+}
+
+/* Custom transitions for buttons */
+.button-hover:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease-in-out;
+}

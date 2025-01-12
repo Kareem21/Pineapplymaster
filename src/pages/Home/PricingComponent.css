@@ -1,0 +1,15 @@
+.pricing-container {
+    width: 100%;
+    padding: 2rem;
+    background: #ffffff; /* White or a light shade from your palette */
+    text-align: center;
+}
+
+.pricing-card {
+    background: #f1f963; /* Or #ffd700, whichever suits your brand best */
+    padding: 2rem;
+    border-radius: 8px;
+    display: inline-block; /* So it shrinks to fit contents */
+    min-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
