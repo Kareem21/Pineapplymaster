@@ -25,13 +25,15 @@ function App() {
         <CssVarsProvider>
             <div className="app">
                 <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact" element={<Contact />} />
-                    {/* Uncomment to add more routes */}
-                    {/* <Route path="/uaelaborlawbot" element={<LaborBotPage />} /> */}
-                    {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-                </Routes>
+                <main className="main-content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/contact" element={<Contact />} />
+                        {/* Uncomment to add more routes */}
+                        {/* <Route path="/uaelaborlawbot" element={<LaborBotPage />} /> */}
+                        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+                    </Routes>
+                </main>
                 <Footer />
             </div>
         </CssVarsProvider>
