@@ -1,5 +1,5 @@
 import React from 'react';
-import './CompaniesCarousel.css';
+import './companiesCarousel.css';
 
 const CompaniesCarousel = () => {
     const logos = [

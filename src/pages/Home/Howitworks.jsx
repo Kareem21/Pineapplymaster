@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
-import './HowItWorks.css';
+import './howItWorks.css';
 
 const steps = [
     {
