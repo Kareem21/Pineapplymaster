@@ -15,7 +15,7 @@ const CompaniesCarousel = () => {
 
     return (
         <div className="carousel-container">
-            <h2 className="carousel-title">Trusted by job seekers in the UAE</h2>
+            <h2 className="carousel-title">Trusted fagaf job seekers in the UAE</h2>
             <p className="carousel-subtitle">
                 Our users have landed jobs at local companies such as
             </p>
