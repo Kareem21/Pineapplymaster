@@ -14,17 +14,17 @@ const CompaniesCarousel = () => {
     const tripleLogos = [...logos, ...logos, ...logos];
 
     return (
-        <div className="carousel-container">
-            <h2 className="carousel-title">Trusted by job seekers in the UAE</h2>
-            <p className="carousel-subtitle">
+        <div className={styles.carouselContainer}>
+            <h2 className={styles.carouselTitle}>Trusted by job seekers in the UAE</h2>
+            <p className={styles.carouselSubtitle}>
                 Our users have landed jobs at local companies such as
             </p>
 
-            <div className="logos-container">
-                <div className="logos-track">
-                    <div className="logos-slide">
+            <div className={styles.logosContainer}>
+                <div className={styles.logosTrack}>
+                    <div className={styles.logosSlide}>
                         {tripleLogos.map((logo, index) => (
-                            <div className="logo-item" key={`logo-${index}`}>
+                            <div className={styles.logoItem} key={`logo-${index}`}>
                                 <img
                                     src={logo.src}
                                     alt={logo.alt}
