@@ -6,10 +6,10 @@ import './home.css';
 
 /** Custom Components */
 import Features from './Features';
-import HowItWorks from './Howitworks';
-import PricingComponent from './PricingComponent';
-import CompaniesCarousel from './CompaniesCarousel';
-import ComparisonSection from './ComparisonSection';
+import HowItWorks from './howItWorks';
+import PricingComponent from './pricingComponent';
+import CompaniesCarousel from './companiesCarousel';
+import ComparisonSection from './comparisonSection';
 //commit
 
 const Home = () => {

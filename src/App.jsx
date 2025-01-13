@@ -7,7 +7,6 @@ import Footer from './components/Footer/Footer.jsx';
 import theme from './Theme';
 import Home from './pages/Home/home.jsx';
 import Contact from './pages/Contact/Contact.jsx';
-import Dashboard from './pages/Dashboard/dashboard.jsx';
 
 import './GlobalStyles.css';
 
@@ -25,7 +24,6 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/dashboard" element={<Dashboard />} />
 
                     </Routes>
                 </Box>

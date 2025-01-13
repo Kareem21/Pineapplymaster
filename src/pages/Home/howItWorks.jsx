@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
 import './howItWorks.css';
-
 const steps = [
     {
         title: 'Upload your CV',
