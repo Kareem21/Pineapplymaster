@@ -10,7 +10,6 @@ import HowItWorks from './howItWorks';
 import PricingComponent from './pricingComponent';
 import CompaniesCarousel from './companiesCarousel';
 import ComparisonSection from './comparisonSection';
-//commit
 
 const Home = () => {
     return (
