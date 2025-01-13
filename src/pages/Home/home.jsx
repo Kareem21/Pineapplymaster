@@ -6,10 +6,10 @@ import './home.css';
 
 /** Custom Components */
 import Features from './Features';
-import HowItWorks from './howItWorks';
-import PricingComponent from './pricingComponent';
-import CompaniesCarousel from './companiesCarousel';
-import ComparisonSection from './comparisonSection';
+import HowItWorks from './howItWorks.jsx';
+import PricingComponent from './pricingComponent.jsx';
+import CompaniesCarousel from './companiesCarousel.jsx';
+import ComparisonSection from './comparisonSection.jsx';
 
 const Home = () => {
     return (
