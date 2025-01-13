@@ -2,9 +2,10 @@
 import React from 'react';
 import { Box, Typography, Input, Textarea, Button, Card } from '@mui/joy';
 import { MessageCircle, Mail } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
 import './Contact.css';
-//test
+
+import { FaWhatsapp } from 'react-icons/fa';
+//test daf
 const Contact = () => {
     const handleWhatsAppClick = () => {
         window.open('https://wa.me/1234567890', '_blank'); // Replace with your WhatsApp number
