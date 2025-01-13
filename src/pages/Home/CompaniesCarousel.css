@@ -11,7 +11,6 @@
     margin: 0.5rem 0;
     color: #444;
 }
-
 .carousel-subtitle {
     font-size: 1rem;
     margin-bottom: 2rem;
@@ -24,6 +23,7 @@
     white-space: nowrap;
     overflow: hidden;
     position: relative;
+    transition: transform 0.3s ease-in-out;
 }
 
 .carousel-item {
@@ -31,10 +31,30 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 150px; /* Adjust width of each logo */
+    width: 150px; /* Base width of logos */
 }
 
 .carousel-item img {
-    height: 40px; /* Adjust height of logos */
+    height: 40px; /* Base height of logos */
     object-fit: contain;
+    max-width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .carousel-item {
+        width: 100px; /* Adjust logo size for smaller screens */
+    }
+    .carousel-item img {
+        height: 30px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        width: 80px;
+    }
+    .carousel-item img {
+        height: 25px;
+    }
 }

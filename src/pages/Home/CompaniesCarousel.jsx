@@ -17,24 +17,23 @@ const CompaniesCarousel = () => {
         const scrollContainer = scrollRef.current;
 
         if (scrollContainer) {
-            // Duplicate the content to create a seamless loop
+            // Duplicate content for seamless looping
             scrollContainer.innerHTML += scrollContainer.innerHTML;
 
             let scrollAmount = 0;
-            const scrollStep = 1; // Pixels to scroll per frame
+            const scrollStep = 1; // Pixels per frame
 
             const scroll = () => {
                 scrollAmount += scrollStep;
                 if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-                    // Reset scroll when the first half is completely scrolled
-                    scrollContainer.scrollLeft = 0;
+                    scrollContainer.scrollLeft = 0; // Reset scroll
                     scrollAmount = 0;
                 } else {
                     scrollContainer.scrollLeft = scrollAmount;
                 }
             };
 
-            const intervalId = setInterval(scroll, 20); // Adjust scrolling speed here
+            const intervalId = setInterval(scroll, 20); // Adjust scrolling speed
 
             return () => clearInterval(intervalId); // Cleanup on unmount
         }
