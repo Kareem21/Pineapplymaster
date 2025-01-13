@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './PricingComponent.css';
+import styles from './PricingComponent.css';
 import { Box, Typography, Button } from '@mui/joy';
 
 const PricingComponent = () => {
@@ -36,7 +36,7 @@ const PricingComponent = () => {
     const { title, price, description, costPerApplication } = planDetails[selectedOption];
 
     return (
-        <Box className="pricing-container">
+        <Box className={styles.pricingContainer}>
             <Typography
                 variant="h2"
                 component="h2"
@@ -84,7 +84,7 @@ const PricingComponent = () => {
             </Box>
 
             {/* The active plan */}
-            <Box className="pricing-card">
+            <Box className={styles.pricingCard}>
                 <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
                     {title}
                 </Typography>
