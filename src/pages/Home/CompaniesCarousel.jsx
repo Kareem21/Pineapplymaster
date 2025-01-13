@@ -10,6 +10,9 @@ const CompaniesCarousel = () => {
         { src: '/Netflix_logo.svg', alt: 'Netflix' }
     ];
 
+    // Create three sets of logos for smooth infinite scrolling
+    const tripleLogos = [...logos, ...logos, ...logos];
+
     return (
         <div className="carousel-container">
             <h2 className="carousel-title">Trusted by job seekers in the UAE</h2>
@@ -18,18 +21,20 @@ const CompaniesCarousel = () => {
             </p>
 
             <div className="logos-container">
-                <div className="logos-slide">
-                    {logos.map((logo, index) => (
-                        <div className="logo-item" key={`logo-${index}`}>
-                            <img src={logo.src} alt={logo.alt} loading="lazy" />
-                        </div>
-                    ))}
-                    {/* Duplicate logos for seamless loop */}
-                    {logos.map((logo, index) => (
-                        <div className="logo-item" key={`logo-dup-${index}`}>
-                            <img src={logo.src} alt={logo.alt} loading="lazy" />
-                        </div>
-                    ))}
+                <div className="logos-track">
+                    <div className="logos-slide">
+                        {tripleLogos.map((logo, index) => (
+                            <div className="logo-item" key={`logo-${index}`}>
+                                <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    loading="lazy"
+                                    width="120"
+                                    height="60"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
