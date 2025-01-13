@@ -21,7 +21,6 @@
 .carousel-track {
     display: flex;
     gap: 3rem;
-    animation: scroll-infinite linear infinite;
     white-space: nowrap;
     overflow: hidden;
     position: relative;
@@ -38,14 +37,4 @@
 .carousel-item img {
     height: 40px; /* Adjust height of logos */
     object-fit: contain;
-}
-
-/* Animation */
-@keyframes scroll-infinite {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }
