@@ -11,10 +11,11 @@ import PricingComponent from './PricingComponent';
 import CompaniesCarousel from './CompaniesCarousel';
 import ComparisonSection from './ComparisonSection';
 //commit
+
 const Home = () => {
     return (
         <Box sx={{ width: '100%', overflow: 'hidden' }}>
-            {/* ========== HERO SECTION ========== */}
+            {/* Hero Section */}
             <div className="home-hero-container">
                 <div className="home-hero-overlay">
                     <Box
@@ -26,7 +27,6 @@ const Home = () => {
                             padding: '2rem',
                         }}
                     >
-                        {/* Hero Heading */}
                         <Typography
                             variant="h3"
                             sx={{
@@ -39,13 +39,13 @@ const Home = () => {
                             Your personal A.I recruiter
                         </Typography>
 
-                        {/* Subline with Typewriter */}
                         <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
                             <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>
-                                Automate your entire Dubai job search. Apply to every single relevant job for you.<br/> Find a job in the UAE 8x faster.                            </Typography>
+                                Automate your entire Dubai job search. Apply to every single
+                                relevant job for you.<br /> Find a job in the UAE 8x faster.
+                            </Typography>
                         </Box>
 
-                        {/* Beta text */}
                         <Typography
                             variant="h3"
                             sx={{
@@ -81,9 +81,9 @@ const Home = () => {
                     </Box>
                 </div>
             </div>
+
             <CompaniesCarousel />
 
-            {/* ========== FEATURES ========== */}
             <Box
                 sx={{
                     width: '100%',
@@ -97,7 +97,6 @@ const Home = () => {
                 <Features />
             </Box>
 
-            {/* ========== BANNER IMAGE ========== */}
             <Box
                 component="img"
                 src="https://i.ibb.co/Gkb8WFT/robot-yellow.png"
@@ -109,18 +108,13 @@ const Home = () => {
                 }}
             />
 
-            {/* ========== HOW IT WORKS ========== */}
             <HowItWorks />
 
-            {/* ========== PRICING ========== */}
             <PricingComponent />
 
-            {/* ========== LOGO CAROUSEL ========== */}
-
-            {/* ========== COMPARISON SECTION ========== */}
             <ComparisonSection />
         </Box>
     );
 };
 
-export default Home;
+export default Home;G
