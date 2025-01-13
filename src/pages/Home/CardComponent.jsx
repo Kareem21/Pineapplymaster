@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardComponent.css'; // Ensure this path is correct
+import './cardComponent.css'; // Updated import path
 
 const CardComponent = ({ title, description, backgroundImage }) => {
     const cardStyle = {
@@ -17,4 +17,5 @@ const CardComponent = ({ title, description, backgroundImage }) => {
         </div>
     );
 };
+
 export default CardComponent;
