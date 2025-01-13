@@ -51,18 +51,6 @@ const Features = () => {
                         }
                     ].map((feature, index) => (
                         <Box
-                            key={index}
-                            sx={{
-                                backgroundColor: 'white',
-                                borderRadius: '16px',
-                                padding: '2rem',
-                                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                                transition: 'all 0.3s ease',
-                                '&:hover': {
-                                    transform: 'translateY(-5px)',
-                                    boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
-                                },
-                            }}
                         >
                             <Typography
                                 variant="h4"

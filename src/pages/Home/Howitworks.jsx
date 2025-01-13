@@ -1,115 +1,70 @@
-
-// HowItWorks.jsx
 import React from 'react';
-import { Typography, Box } from '@mui/joy';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { Box, Typography } from '@mui/joy';
+import './HowItWorks.css';
+
+const steps = [
+    {
+        title: 'Upload your CV',
+        description: 'Upload your CV so Pineapply can match your skills to available jobs.',
+        icon: '📄',
+    },
+    {
+        title: 'Pineapply finds jobs',
+        description: 'We scan all online job sources to find every single opportunity relevant for you.',
+        icon: '🔍',
+    },
+    {
+        title: 'Automatic Applications',
+        description: 'We apply on your behalf for the roles you select or all of them! just sit back and relax!',
+        icon: '✨',
+    },
+];
 
 const HowItWorks = () => {
-    const steps = [
-        {
-            title: 'Upload your CV',
-            description: 'Upload your CV so Pineapply can match your skills to available jobs.',
-            icon: '📄'
-        },
-        {
-            title: 'Pineapply finds jobs',
-            description: 'We scan all online job sources to find opportunities relevant for you.',
-            icon: '🔍'
-        },
-        {
-            title: 'Automatic Applications',
-            description: 'We apply on your behalf for the roles you select—just sit back and relax!',
-            icon: '✨'
-        },
-    ];
-
     return (
-        <Box
-            sx={{
-                width: '100%',
-                background: 'linear-gradient(145deg, #3E175F, #492D6F)',
-                padding: { xs: '3rem 1rem', md: '6rem 2rem' },
-                overflow: 'hidden',
-            }}
-        >
-            <Box
+        <Box className="how-it-works-container">
+            <Typography
+                variant="h3"
                 sx={{
-                    maxWidth: '1400px',
-                    margin: '0 auto',
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    textAlign: 'center',
+                    marginBottom: '2rem',
+                    fontSize: { xs: '2rem', sm: '2.5rem' },
                 }}
             >
-                <Typography
-                    variant="h2"
-                    component="h2"
-                    sx={{
-                        fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
-                        marginBottom: '4rem',
-                        textAlign: 'center',
-                        color: 'white',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    How It Works
-                </Typography>
+                How It Works
+            </Typography>
 
-                <Box
-                    sx={{
-                        display: 'grid',
-                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-                        gap: { xs: '2rem', md: '3rem' },
-                        position: 'relative',
-                        maxWidth: '1200px',
-                        margin: '0 auto',
-                    }}
-                >
-                    {steps.map((step, index) => (
-                        <Box
-                            key={index}
+            <Box className="how-it-works-steps">
+                {steps.map((step, index) => (
+                    <Box key={index} className="step-card">
+                        <Box className="step-icon">{step.icon}</Box>
+                        <Typography
+                            variant="h5"
                             sx={{
-                                background: 'rgba(255, 255, 255, 0.1)',
-                                backdropFilter: 'blur(10px)',
-                                borderRadius: '20px',
-                                padding: '2.5rem',
-                                color: 'white',
+                                fontWeight: 600,
+                                color: '#fff',
+                                marginBottom: '1rem',
                                 textAlign: 'center',
-                                position: 'relative',
-                                transition: 'all 0.3s ease',
-                                '&:hover': {
-                                    transform: 'translateY(-8px)',
-                                    background: 'rgba(255, 255, 255, 0.15)',
-                                },
                             }}
                         >
-                            <Typography
-                                sx={{
-                                    fontSize: '3rem',
-                                    marginBottom: '1rem',
-                                }}
-                            >
-                                {step.icon}
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    fontSize: { xs: '1.5rem', md: '1.75rem' },
-                                    fontWeight: 'bold',
-                                    marginBottom: '1rem',
-                                }}
-                            >
-                                {step.title}
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    fontSize: { xs: '1rem', md: '1.1rem' },
-                                    opacity: 0.9,
-                                    lineHeight: 1.6,
-                                }}
-                            >
-                                {step.description}
-                            </Typography>
-                        </Box>
-                    ))}
-                </Box>
+                            {step.title}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                fontSize: '1rem',
+                                color: '#e4e4e4',
+                                textAlign: 'center',
+                                maxWidth: '280px',
+                                margin: '0 auto',
+                            }}
+                        >
+                            {step.description}
+                        </Typography>
+                    </Box>
+                ))}
             </Box>
         </Box>
     );

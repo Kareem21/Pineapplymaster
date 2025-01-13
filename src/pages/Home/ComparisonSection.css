@@ -27,49 +27,44 @@
     box-sizing: border-box;
 }
 
-/* BEFORE and AFTER columns share these translucent backgrounds */
 .before-column,
 .after-column {
     background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
 }
 
-/* Headings for each column */
 .comparison-heading {
+    color: #ffd700;
     font-weight: 700;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 1.75rem;
 }
 
 .comparison-subheading {
     margin-bottom: 1.5rem;
     opacity: 0.9;
+    font-size: 1rem;
 }
 
-/* The arrow in the middle */
 .arrow-box {
-    background: #ffd700; /* or #f1f963 for your brand's yellow */
+    background: #ffd700;
     border-radius: 50%;
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1rem 0;
 }
 
-/* Layout on larger screens */
-@media (min-width: 768px) {
-    .comparison-inner {
-        flex-direction: row;
-    }
-}
-
-/* The individual “cards” in each column */
 .comparison-card {
     background-color: #ffffff;
     color: #333;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -78,7 +73,7 @@
 
 .comparison-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
@@ -86,14 +81,15 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 1.25rem;
 }
 
 .card-icon {
     color: #492d6f;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
 
 .card-desc {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #444;
 }

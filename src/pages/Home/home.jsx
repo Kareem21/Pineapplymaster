@@ -42,19 +42,7 @@ const Home = () => {
                         {/* Subline with Typewriter */}
                         <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
                             <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>
-                                <Typewriter
-                                    options={{
-                                        strings: [
-                                            'Streamline your Dubai Job search',
-                                            'Automatically fill out job form applications',
-                                            'Increase your chances of landing a job by 6x',
-                                        ],
-                                        autoStart: true,
-                                        loop: true,
-                                        delay: 40,
-                                    }}
-                                />
-                            </Typography>
+                                Automate your entire Dubai job search. Apply to every single relevant job for you.<br/> Find a job in the UAE 8x faster.                            </Typography>
                         </Box>
 
                         {/* Beta text */}
@@ -93,6 +81,7 @@ const Home = () => {
                     </Box>
                 </div>
             </div>
+            <CompaniesCarousel />
 
             {/* ========== FEATURES ========== */}
             <Box
@@ -127,7 +116,6 @@ const Home = () => {
             <PricingComponent />
 
             {/* ========== LOGO CAROUSEL ========== */}
-            <CompaniesCarousel />
 
             {/* ========== COMPARISON SECTION ========== */}
             <ComparisonSection />

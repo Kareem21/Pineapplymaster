@@ -45,10 +45,10 @@ const ComparisonSection = () => {
                     <Box className="comparison-card">
                         <Typography variant="h5" className="card-title">
                             <ViewListIcon className="card-icon" />
-                            Fragmented Tools
+                            Fragmentation
                         </Typography>
                         <Typography variant="body2" className="card-desc">
-                            Switching between multiple platforms is stressful
+                            Switching between Linkedin/Nukari Gulf/Indeed and other job boards is stressful
                         </Typography>
                     </Box>
                 </Box>

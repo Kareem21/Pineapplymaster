@@ -1,9 +1,9 @@
 .carousel-container {
     width: 100%;
-    overflow: hidden;
     background-color: #fff;
     text-align: center;
     padding: 2rem 1rem;
+    overflow: hidden; /* Hide scrollbar and excess content */
 }
 
 .carousel-title {
@@ -21,26 +21,31 @@
 .carousel-track {
     display: flex;
     gap: 3rem;
+    animation: scroll-infinite linear infinite;
     white-space: nowrap;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 0 1rem;
-    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .carousel-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    width: 150px; /* Adjust width of each logo */
 }
 
 .carousel-item img {
-    height: 40px; /* adjust as needed */
+    height: 40px; /* Adjust height of logos */
     object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease-in-out;
 }
 
-.carousel-item img:hover {
-    filter: none; /* color on hover */
+/* Animation */
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
