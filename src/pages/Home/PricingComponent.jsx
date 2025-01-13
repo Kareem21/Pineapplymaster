@@ -12,25 +12,28 @@ const PricingComponent = () => {
     const planDetails = {
         '100credits': {
             title: '100 Credits',
-            price: '$9.99',
+            costPerApplication: '100', // 100 fils per application
+            price: 'AED 100',
             description:
                 'Perfect for occasional job applications or resume support.',
         },
         '250credits': {
             title: '250 Credits',
-            price: '$19.99',
+            costPerApplication: '40', // 40 fils per application
+            price: 'AED 250',
             description:
                 'Great for those actively applying and wanting more coverage.',
         },
         '500credits': {
             title: '500 Credits',
-            price: '$29.99',
+            costPerApplication: '20', // 20 fils per application
+            price: 'AED 500',
             description:
                 'Ideal for power users or recruiters applying for multiple roles daily.',
         },
     };
 
-    const { title, price, description } = planDetails[selectedOption];
+    const { title, price, description, costPerApplication } = planDetails[selectedOption];
 
     return (
         <Box className="pricing-container">
@@ -45,7 +48,7 @@ const PricingComponent = () => {
                 <b>Powerful Features</b>
             </Typography>
             <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
-                Whether you’re starting out or need extra support, we have a plan for you.
+                Whether you're starting out or need extra support, we have a plan for you.
             </Typography>
 
             {/* Toggle buttons for 100 / 250 / 500 credits */}
@@ -82,11 +85,21 @@ const PricingComponent = () => {
 
             {/* The active plan */}
             <Box className="pricing-card">
-                <Typography variant="h3" component="h3" sx={{ marginBottom: '1rem' }}>
+                <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
                     {title}
                 </Typography>
+                <Typography
+                    variant="body2"
+                    sx={{
+                        marginBottom: '0.5rem',
+                        color: 'text.secondary',
+                        fontSize: '0.9rem'
+                    }}
+                >
+                    Only {costPerApplication} fils per application
+                </Typography>
                 <Typography variant="h4" component="h4" sx={{ marginBottom: '1rem' }}>
-                    {price}/month
+                    {price}
                 </Typography>
                 <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
                     {description}

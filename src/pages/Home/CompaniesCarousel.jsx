@@ -4,7 +4,6 @@ import './CompaniesCarousel.css';
 const CompaniesCarousel = () => {
     const logos = [
         { src: '/damac.svg', alt: 'Damac' },
-        { src: '/Emirates_logo.svg', alt: 'Emirates' },
         { src: '/Talabat_logo.svg', alt: 'Talabat' },
         { src: '/Microsoft_logo.svg', alt: 'Microsoft' },
         { src: '/Google_logo.svg', alt: 'Google' },
