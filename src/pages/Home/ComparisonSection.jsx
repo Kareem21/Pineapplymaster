@@ -1,5 +1,5 @@
-import React from 'react';
 import './ComparisonSection.css';
+import React from 'react';
 import { Box, Typography } from '@mui/joy';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
