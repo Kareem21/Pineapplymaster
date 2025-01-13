@@ -1,8 +1,9 @@
 // home.jsx
+import './home.css'; // At the top
+
 import React from 'react';
 import { Typography, Box, Button } from '@mui/joy';
 import Typewriter from 'typewriter-effect';
-import './home.css';
 
 /** Custom Components */
 import Features from './Features';
