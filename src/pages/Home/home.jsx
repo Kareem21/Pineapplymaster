@@ -10,7 +10,7 @@ import HowItWorks from './Howitworks';
 import PricingComponent from './PricingComponent';
 import CompaniesCarousel from './CompaniesCarousel';
 import ComparisonSection from './ComparisonSection';
-
+//commit
 const Home = () => {
     return (
         <Box sx={{ width: '100%', overflow: 'hidden' }}>
