@@ -1,4 +1,4 @@
-import './comparison-section.css';
+import './comparisonSection.css';
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
