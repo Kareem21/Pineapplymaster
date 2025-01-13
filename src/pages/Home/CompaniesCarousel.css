@@ -1,13 +1,3 @@
-:export {
-    carouselContainer: carousel-container;
-    carouselTitle: carousel-title;
-    carouselSubtitle: carousel-subtitle;
-    logosContainer: logos-container;
-    logosTrack: logos-track;
-    logosSlide: logos-slide;
-    logoItem: logo-item;
-}
-
 .carousel-container {
     width: 100%;
     background-color: #fff;
