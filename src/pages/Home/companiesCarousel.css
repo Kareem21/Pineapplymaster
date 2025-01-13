@@ -1,0 +1,161 @@
+.companies-carousel-container {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    overflow: hidden;
+}
+
+.carousel-title {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    color: #444;
+    font-weight: 600;
+}
+
+.carousel-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.logos-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    background-color: #fff;
+}
+
+.logos-track {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+}
+
+.logos-slide {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    animation: slideLoop 40s linear infinite;
+    will-change: transform;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 60px;
+}
+
+.logo-item img {
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Smooth fade edges */
+.logos-container::before,
+.logos-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-container::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.logos-container::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+@keyframes slideLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 3));
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .logos-slide {
+        gap: 3rem;
+    }
+
+    .logos-track {
+        height: 70px;
+    }
+
+    .logo-item,
+    .logo-item img {
+        width: 120px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-title {
+        font-size: 1.75rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1rem;
+    }
+
+    .logos-slide {
+        gap: 2.5rem;
+    }
+
+    .logos-track {
+        height: 60px;
+    }
+
+    .logo-item,
+    .logo-item img {
+        width: 120px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
+    .logos-slide {
+        gap: 2rem;
+    }
+
+    .logos-track {
+        height: 60px;
+    }
+
+    .logo-item,
+    .logo-item img {
+        width: 120px;
+        height: 60px;
+    }
+
+    .logos-container::before,
+    .logos-container::after {
+        width: 50px;
+    }
+}
