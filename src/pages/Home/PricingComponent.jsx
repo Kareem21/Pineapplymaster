@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import './PricingComponent.css';
+import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/joy';
 
 const PricingComponent = () => {
