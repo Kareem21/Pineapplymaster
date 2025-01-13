@@ -2,58 +2,129 @@
     width: 100%;
     background-color: #fff;
     text-align: center;
-    padding: 2rem 1rem;
-    overflow: hidden; /* Hide scrollbar and excess content */
+    padding: 2rem 0;
+    overflow: hidden;
 }
 
 .carousel-title {
     font-size: 2rem;
     margin: 0.5rem 0;
     color: #444;
+    font-weight: 600;
 }
 
 .carousel-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     color: #666;
 }
 
-.carousel-track {
-    display: flex;
-    gap: 2rem;
-    white-space: nowrap;
+.logos-container {
+    width: 100%;
     overflow: hidden;
+    padding: 1rem 0;
     position: relative;
-    align-items: center;
 }
 
-.carousel-item {
-    flex-shrink: 0;
+.logos-container::before,
+.logos-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+}
+
+.logos-container::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.logos-container::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+}
+
+.logos-slide {
+    display: flex;
+    gap: 3rem;
+    animation: slide 30s linear infinite;
+    width: fit-content;
+}
+
+.logo-item {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px; /* Base width of logos */
-    height: 80px; /* Set a fixed height to maintain aspect ratio */
+    width: 160px;
+    height: 80px;
+    padding: 0.5rem;
 }
 
-.carousel-item img {
+.logo-item img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Maintain aspect ratio and ensure logos fit inside container */
-    display: block;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* Responsive styles for smaller screens */
+.logo-item:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .logo-item {
+        width: 140px;
+        height: 70px;
+    }
+
+    .logos-slide {
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .carousel-item {
-        width: 90px;
+    .carousel-title {
+        font-size: 1.75rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1rem;
+    }
+
+    .logo-item {
+        width: 120px;
         height: 60px;
+    }
+
+    .logos-slide {
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .carousel-item {
-        width: 70px; /* Further adjust width for very small screens */
-        height: 50px; /* Further adjust height for very small screens */
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
+    .logo-item {
+        width: 100px;
+        height: 50px;
+    }
+
+    .logos-slide {
+        gap: 1rem;
     }
 }
