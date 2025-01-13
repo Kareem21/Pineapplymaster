@@ -1,4 +1,4 @@
-import './PricingComponent.css';
+import './pricingComponent.css';
 import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/joy';
 
