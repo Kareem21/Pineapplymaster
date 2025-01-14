@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button, Modal } from '@mui/joy';
 import './dashboard.css';
 import supabase from '../../../supabaseClient'; // Replace with your actual Supabase client initialization
-import CreditsCard from './CreditsCard.jsx';
-import PreferredTitlesCard from './PreferredTitlesCard.jsx';
-import JobsInQueue from './JobsInQueue.jsx';
+import CreditsCard from './creditsCard.jsx';
+import PreferredTitlesCard from './preferredTitlesCard.jsx';
+import JobsInQueue from './jobsInQueue.jsx';
 
 const Dashboard = () => {
     const [jobs, setJobs] = useState([]);
