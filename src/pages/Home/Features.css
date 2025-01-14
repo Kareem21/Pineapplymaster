@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffd700; /* Bright yellow background */
+    background: none; /* Transparent background */
 }
 
 .features-content {
@@ -33,11 +33,11 @@
 }
 
 .feature-item {
-    background: #fff;
-    border-radius: 8px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Retains shadow for card appearance */
+    background: none; /* Transparent background for feature cards */
 }
 
 .feature-item h4 {

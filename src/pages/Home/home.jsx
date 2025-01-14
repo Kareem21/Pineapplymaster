@@ -1,4 +1,3 @@
-// home.jsx
 import './home.css'; // At the top
 
 import React from 'react';
@@ -86,10 +85,39 @@ const Home = () => {
 
             <Box
                 sx={{
+                    padding: '2rem 1rem',
+                    textAlign: 'center',
+                    backgroundColor: '#fafafa',
+                }}
+            >
+                <Typography
+                    variant="h5"
+                    sx={{
+                        fontSize: '1.5rem',
+                        fontWeight: 600,
+                        color: '#492d6f',
+                        marginBottom: '1rem',
+                    }}
+                >
+                    Focus on what matters most
+                </Typography>
+                <Typography
+                    variant="body1"
+                    sx={{
+                        fontSize: '1.1rem',
+                        color: '#555',
+                        lineHeight: '1.8',
+                    }}
+                >
+                    Let us handle the tedious applications while you concentrate on networking, preparing for interviews, and advancing your skills. Your success is our priority.
+                </Typography>
+            </Box>
+
+            <Box
+                sx={{
                     width: '100%',
                     margin: '0 auto',
                     padding: { xs: '2rem', md: '4rem' },
-                    backgroundColor: '#f8dc14',
                     position: 'relative',
                     overflow: 'hidden',
                 }}
@@ -99,7 +127,7 @@ const Home = () => {
 
             <Box
                 component="img"
-                src="https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot_yellow.png"
+                src="https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png"
                 alt="Banner"
                 sx={{
                     width: '100%',
