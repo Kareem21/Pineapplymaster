@@ -12,24 +12,21 @@ const PricingComponent = () => {
     const planDetails = {
         '100credits': {
             title: '100 Credits',
-            costPerApplication: '100',
+            costPerApplication: '40',
             price: 'AED 100',
-            description:
-                'Perfect for occasional job applications or resume support.',
+            description: 'Perfect for passive job seekers',
         },
         '250credits': {
             title: '250 Credits',
             costPerApplication: '40',
             price: 'AED 250',
-            description:
-                'Great for those actively applying and wanting more coverage.',
+            description: 'Great for those actively applying and wanting to apply to more jobs',
         },
         '500credits': {
             title: '500 Credits',
             costPerApplication: '20',
             price: 'AED 500',
-            description:
-                'Ideal for power users or recruiters applying for multiple roles daily.',
+            description: 'Ideal for people who urgently need to land a role',
         },
     };
 
@@ -37,29 +34,31 @@ const PricingComponent = () => {
 
     return (
         <Box className="pricing-container">
-            <Typography
-                variant="h2"
-                component="h2"
-                color="appTheme"
-                sx={{ marginBottom: '2rem', textAlign: 'center' }}
-            >
-                Simple Pricing,
-                <br />
-                <b>Powerful Features</b>
-            </Typography>
-            <Typography variant="body1" sx={{ marginBottom: '2rem', textAlign: 'center' }}>
-                Whether you're starting out or need extra support, we have a plan for you.
-            </Typography>
+            <div className="pricing-header">
+                <Typography
+                    variant="h1"
+                    component="h1"
+                    color="appTheme"
+                    className="pricing-title"
+                >
+                    Simple Pricing,
+                    <br />
+                    <b>Powerful Features</b>
+                </Typography>
 
-            <Box
-                sx={{
-                    display: 'flex',
-                    gap: '1rem',
-                    justifyContent: 'center',
-                    marginBottom: '2rem',
-                }}
-            >
+                <div className="credit-explanation">
+                    <Typography variant="h4" component="p">
+                        1 Credit = 1 Job Application
+                    </Typography>
+                    <Typography variant="body1">
+                        Choose the plan that matches your job search intensity
+                    </Typography>
+                </div>
+            </div>
+
+            <Box className="pricing-options">
                 <Button
+                    className={`option-button ${selectedOption === '100credits' ? 'selected' : ''}`}
                     variant={selectedOption === '100credits' ? 'solid' : 'outlined'}
                     color="appTheme"
                     onClick={() => handleOptionClick('100credits')}
@@ -67,6 +66,7 @@ const PricingComponent = () => {
                     100 Credits
                 </Button>
                 <Button
+                    className={`option-button ${selectedOption === '250credits' ? 'selected' : ''}`}
                     variant={selectedOption === '250credits' ? 'solid' : 'outlined'}
                     color="appTheme"
                     onClick={() => handleOptionClick('250credits')}
@@ -74,6 +74,7 @@ const PricingComponent = () => {
                     250 Credits
                 </Button>
                 <Button
+                    className={`option-button ${selectedOption === '500credits' ? 'selected' : ''}`}
                     variant={selectedOption === '500credits' ? 'solid' : 'outlined'}
                     color="appTheme"
                     onClick={() => handleOptionClick('500credits')}
@@ -83,32 +84,22 @@ const PricingComponent = () => {
             </Box>
 
             <Box className="pricing-card">
-                <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
+                <Typography variant="h3" component="h3" className="card-title">
                     {title}
                 </Typography>
-                <Typography
-                    variant="body2"
-                    sx={{
-                        marginBottom: '0.5rem',
-                        color: 'text.secondary',
-                        fontSize: '0.9rem',
-                    }}
-                >
+                <Typography variant="body2" className="cost-per-application">
                     Only {costPerApplication} fils per application
                 </Typography>
-                <Typography variant="h4" component="h4" sx={{ marginBottom: '1rem' }}>
+                <Typography variant="h4" component="h4" className="price">
                     {price}
                 </Typography>
-                <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
+                <Typography variant="body1" className="description">
                     {description}
                 </Typography>
                 <Button
                     color="appTheme"
                     variant="solid"
-                    sx={{
-                        fontSize: '1.2rem',
-                        padding: '0.75rem 2rem',
-                    }}
+                    className="get-started-button"
                 >
                     Get Started
                 </Button>

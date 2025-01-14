@@ -83,6 +83,11 @@ const Home = () => {
 
             <CompaniesCarousel />
 
+            {/* Features Section */}
+            <div className="features-overlay">
+                <Features />
+            </div>
+
             <Box
                 sx={{
                     padding: '2rem 1rem',
@@ -109,32 +114,9 @@ const Home = () => {
                         lineHeight: '1.8',
                     }}
                 >
-                    Let us handle the tedious applications while you concentrate on networking, preparing for interviews, and advancing your skills. Your success is our priority.
+                    Let us handle the tedious applications while you concentrate on networking, interview prep, and advancing your skills.
                 </Typography>
             </Box>
-
-            <Box
-                sx={{
-                    width: '100%',
-                    margin: '0 auto',
-                    padding: { xs: '2rem', md: '4rem' },
-                    position: 'relative',
-                    overflow: 'hidden',
-                }}
-            >
-                <Features />
-            </Box>
-
-            <Box
-                component="img"
-                src="https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png"
-                alt="Banner"
-                sx={{
-                    width: '100%',
-                    height: 'auto',
-                    display: 'block',
-                }}
-            />
 
             <HowItWorks />
 

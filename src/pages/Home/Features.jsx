@@ -1,4 +1,3 @@
-// Features.jsx
 import React from 'react';
 import './Features.css';
 
@@ -22,7 +21,6 @@ const Features = () => {
         <div className="features-container">
             <div className="features-content">
                 <h2 className="features-title">Features</h2>
-
                 <div className="features-grid">
                     {featuresData.map((feature, index) => (
                         <div key={index} className="feature-item">

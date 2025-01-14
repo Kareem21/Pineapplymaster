@@ -1,94 +1,191 @@
-.comparison-section-container {
+.comparison-section {
     width: 100%;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    background-color: #492d6f;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.comparison-inner {
+.comparison-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.section-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #f8dc14 !important;
+    margin-bottom: 1rem !important;
+}
+
+.section-subtitle {
+    font-size: 1.2rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    line-height: 1.6 !important;
+}
+
+.comparison-container {
     max-width: 1200px;
-    width: 100%;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
     gap: 2rem;
-    align-items: center;
+    align-items: stretch;
+    position: relative;
 }
 
 .comparison-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
     padding: 2rem;
-    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    position: relative;
 }
 
-.before-column,
-.after-column {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 12px;
+.column-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .comparison-heading {
-    color: #ffd700;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    color: #f8dc14 !important;
+    margin-bottom: 0.5rem !important;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1.75rem;
 }
 
 .comparison-subheading {
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
 }
 
-.arrow-box {
-    background: #ffd700;
-    border-radius: 50%;
-    padding: 1rem;
+.cards-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-grow: 1;
 }
 
 .comparison-card {
-    background-color: #ffffff;
-    color: #333;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    padding: 1.5rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .comparison-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
-    color: #492d6f;
-    font-size: 1.75rem;
+    font-size: 2rem !important;
+    color: #492d6f !important;
+    flex-shrink: 0;
+}
+
+.card-icon.success {
+    color: #f8dc14 !important;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-title {
+    color: #492d6f !important;
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .card-desc {
-    font-size: 1rem;
-    color: #444;
+    color: #666 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-box {
+    background: #f8dc14;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-box svg {
+    color: #492d6f;
+    font-size: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .comparison-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-container {
+        flex-direction: column;
+    }
+
+    .arrow-container {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+
+    .comparison-column {
+        width: 100%;
+    }
+
+    .comparison-heading {
+        font-size: 1.5rem !important;
+    }
+
+    .comparison-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison-section {
+        padding: 3rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .comparison-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .card-icon {
+        margin-bottom: 0.5rem;
+    }
 }

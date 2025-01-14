@@ -1,25 +1,129 @@
 /* pricingComponent.css */
 .pricing-container {
     text-align: center;
-    margin: 2rem auto;
+    margin: 4rem auto;
     padding: 2rem;
     max-width: 1200px;
 }
-.pricing-card {
-    background-color: #f8dc14;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 1rem;
+
+.pricing-header {
+    margin-bottom: 3rem;
 }
 
-/* comparisonSection.css */
-.comparison-container {
+.pricing-title {
+    font-size: 3.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2rem !important;
+    font-weight: 700;
+}
+
+.credit-explanation {
+    background-color: rgba(248, 220, 20, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.credit-explanation h4 {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600;
+}
+
+.credit-explanation p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.pricing-options {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    margin-bottom: 2rem;
 }
-.comparison-card {
-    padding: 1rem;
-    text-align: center;
+
+.option-button {
+    font-size: 1.1rem !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.option-button:hover {
+    transform: translateY(-2px);
+}
+
+.option-button.selected {
+    transform: scale(1.05);
+}
+
+.pricing-card {
+    background-color: #f8dc14;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-title {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 700;
+}
+
+.cost-per-application {
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.price {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1.2rem !important;
+    margin-bottom: 2rem !important;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.get-started-button {
+    font-size: 1.3rem !important;
+    padding: 1rem 3rem !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.get-started-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .pricing-title {
+        font-size: 2.5rem !important;
+    }
+
+    .credit-explanation h4 {
+        font-size: 1.5rem !important;
+    }
+
+    .pricing-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option-button {
+        width: 100%;
+        max-width: 300px;
+    }
 }
