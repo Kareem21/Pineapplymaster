@@ -1,6 +1,5 @@
-// src/App.jsx
 import React, { useState } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { CssVarsProvider, Box } from '@mui/joy';
 
 import Navbar from './components/Navbar/Navbar';
@@ -16,33 +15,31 @@ function App() {
 
     return (
         <CssVarsProvider theme={theme}>
-            <BrowserRouter>
+            <Box
+                className="layout-root"
+                sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+            >
                 <Box
-                    className="layout-root"
-                    sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+                    component="header"
+                    sx={{ width: '100%', backgroundColor: 'white' }}
                 >
-                    <Box
-                        component="header"
-                        sx={{ width: '100%', backgroundColor: 'white' }}
-                    >
-                        <Navbar isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
-                    </Box>
-
-                    <Box
-                        component="main"
-                        sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column' }}
-                    >
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/contact" element={<Contact />} />
-                         </Routes>
-                    </Box>
-
-                    <Box component="footer" sx={{ width: '100%' }}>
-                        <Footer />
-                    </Box>
+                    <Navbar isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
                 </Box>
-            </BrowserRouter>
+
+                <Box
+                    component="main"
+                    sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column' }}
+                >
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                </Box>
+
+                <Box component="footer" sx={{ width: '100%' }}>
+                    <Footer />
+                </Box>
+            </Box>
         </CssVarsProvider>
     );
 }

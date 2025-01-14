@@ -1,9 +1,22 @@
-
-// Features.jsx
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
 
 const Features = () => {
+    const features = [
+        {
+            title: 'One click to automatically apply',
+            desc: 'With the click of a button, you can apply to 100s or 1000s of job applications that are relevant for you.',
+        },
+        {
+            title: 'Never miss a job posting again',
+            desc: 'Upload your CV once and let Pineapply find the best roles for you by matching your skills and experience across all sources.',
+        },
+        {
+            title: 'Find the most up to date jobs',
+            desc: 'Pineapply will scan all the sources for listings every hour!',
+        },
+    ];
+
     return (
         <Box className="features-container" sx={{ width: '100%', overflow: 'hidden' }}>
             <Box
@@ -36,21 +49,16 @@ const Features = () => {
                         width: '100%',
                     }}
                 >
-                    {[
-                        {
-                            title: 'One click to automatically apply',
-                            desc: 'With the click of a button, you can apply to 100s or 1000s of job applications that are relevant for you.'
-                        },
-                        {
-                            title: 'Never miss a job posting again',
-                            desc: 'Upload your CV once and let Pineapply find the best roles for you by matching your skills and experience across all sources.'
-                        },
-                        {
-                            title: 'Find the most up to date jobs',
-                            desc: 'Pineapply will scan all the sources for listings every hour!'
-                        }
-                    ].map((feature, index) => (
+                    {features.map((feature, index) => (
                         <Box
+                            key={index} // Add a unique key prop here
+                            className="feature-item"
+                            sx={{
+                                backgroundColor: '#fff',
+                                borderRadius: '8px',
+                                padding: '20px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                            }}
                         >
                             <Typography
                                 variant="h4"
@@ -58,7 +66,7 @@ const Features = () => {
                                     color: 'appTheme',
                                     marginBottom: '1rem',
                                     fontWeight: 'bold',
-                                    fontSize: { xs: '1.5rem', md: '1.75rem' }
+                                    fontSize: { xs: '1.5rem', md: '1.75rem' },
                                 }}
                             >
                                 {feature.title}
@@ -68,7 +76,7 @@ const Features = () => {
                                 sx={{
                                     color: 'text.secondary',
                                     fontSize: { xs: '1rem', md: '1.1rem' },
-                                    lineHeight: 1.6
+                                    lineHeight: 1.6,
                                 }}
                             >
                                 {feature.desc}

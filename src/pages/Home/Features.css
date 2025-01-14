@@ -79,3 +79,23 @@
         font-size: 2rem;
     }
 }
+.feature-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h4 {
+    color: var(--joy-palette-appTheme-800, #3e175f);
+    font-weight: bold;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    color: #555e68;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
