@@ -6,6 +6,8 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import theme from './Theme';
 import Home from './pages/Home/home';
+import Dashboard from '../src/pages/Dashboard/dashboard';
+
 import Contact from './pages/Contact/Contact';
 
 import './GlobalStyles.css';
@@ -33,6 +35,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/dashboard" element={<Dashboard/>} />
                     </Routes>
                 </Box>
 

@@ -12,21 +12,21 @@ const PricingComponent = () => {
     const planDetails = {
         '100credits': {
             title: '100 Credits',
-            costPerApplication: '100', // 100 fils per application
+            costPerApplication: '100',
             price: 'AED 100',
             description:
                 'Perfect for occasional job applications or resume support.',
         },
         '250credits': {
             title: '250 Credits',
-            costPerApplication: '40', // 40 fils per application
+            costPerApplication: '40',
             price: 'AED 250',
             description:
                 'Great for those actively applying and wanting more coverage.',
         },
         '500credits': {
             title: '500 Credits',
-            costPerApplication: '20', // 20 fils per application
+            costPerApplication: '20',
             price: 'AED 500',
             description:
                 'Ideal for power users or recruiters applying for multiple roles daily.',
@@ -41,17 +41,16 @@ const PricingComponent = () => {
                 variant="h2"
                 component="h2"
                 color="appTheme"
-                sx={{ marginBottom: '2rem' }}
+                sx={{ marginBottom: '2rem', textAlign: 'center' }}
             >
                 Simple Pricing,
                 <br />
                 <b>Powerful Features</b>
             </Typography>
-            <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
+            <Typography variant="body1" sx={{ marginBottom: '2rem', textAlign: 'center' }}>
                 Whether you're starting out or need extra support, we have a plan for you.
             </Typography>
 
-            {/* Toggle buttons for 100 / 250 / 500 credits */}
             <Box
                 sx={{
                     display: 'flex',
@@ -83,7 +82,6 @@ const PricingComponent = () => {
                 </Button>
             </Box>
 
-            {/* The active plan */}
             <Box className="pricing-card">
                 <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
                     {title}
@@ -93,7 +91,7 @@ const PricingComponent = () => {
                     sx={{
                         marginBottom: '0.5rem',
                         color: 'text.secondary',
-                        fontSize: '0.9rem'
+                        fontSize: '0.9rem',
                     }}
                 >
                     Only {costPerApplication} fils per application
