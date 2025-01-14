@@ -99,7 +99,7 @@ const Home = () => {
 
             <Box
                 component="img"
-                src="https://i.ibb.co/Gkb8WFT/robot-yellow.png"
+                src="https://i.ibb.co/7WxY7xW/robot-yellow.png"
                 alt="Banner"
                 sx={{
                     width: '100%',
