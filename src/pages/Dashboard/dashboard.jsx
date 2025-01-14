@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button, Modal } from '@mui/joy';
 import './dashboard.css';
-import supabase from '../../supabaseClient'; // Replace with your actual Supabase client initialization
+import supabase from '../../../supabaseClient'; // Replace with your actual Supabase client initialization
 import CreditsCard from './CreditsCard.jsx';
 import PreferredTitlesCard from './PreferredTitlesCard.jsx';
 import JobsInQueue from './JobsInQueue.jsx';
