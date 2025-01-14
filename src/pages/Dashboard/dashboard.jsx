@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button, Modal, Card } from '@mui/joy';
-import CreditsCard from './CreditsCard';
-import PreferredTitlesCard from './PreferredTitlesCard';
-import JobsInQueue from './JobsInQueue';
-import ResumeCard from './ResumeCard';
+import CreditsCard from './creditsCard';
+import PreferredTitlesCard from './preferredTitlesCard';
+import JobsInQueue from './jobsInQueue';
+import ResumeCard from './resumeCard';
 
 const Dashboard = () => {
     const [jobs, setJobs] = useState([]);
