@@ -1,17 +1,45 @@
+
+// CreditsCard.jsx
 import React from 'react';
-import { Card, Typography } from '@mui/joy';
+import { Card, Typography, CircularProgress, Box } from '@mui/joy';
 
 const CreditsCard = () => {
-    const totalCredits = 50; // Example placeholder. In real code, fetch from user data.
+    const totalCredits = 50;
+    const maxCredits = 100;
+    const percentage = (totalCredits / maxCredits) * 100;
 
     return (
-        <Card variant="outlined" sx={{ width: 300, p: 2 }}>
-            <Typography level="h5" sx={{ mb: 1 }}>
-                Total Credits
+        <Card variant="outlined" sx={{ p: 2 }}>
+            <Typography level="h6" sx={{ mb: 2 }}>
+                Available Credits
             </Typography>
-            <Typography level="body1" fontWeight="bold" fontSize="1.5rem">
-                {totalCredits}
-            </Typography>
+            <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+            }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <CircularProgress
+                        size="lg"
+                        determinate
+                        value={percentage}
+                        color={percentage < 20 ? 'danger' : 'primary'}
+                        sx={{ '--CircularProgress-size': '60px' }}
+                    >
+                        <Typography level="body1" fontWeight="lg">
+                            {totalCredits}
+                        </Typography>
+                    </CircularProgress>
+                </Box>
+                <Box sx={{ textAlign: 'right' }}>
+                    <Typography level="body2" sx={{ color: 'text.secondary' }}>
+                        Total Limit
+                    </Typography>
+                    <Typography level="h5" fontWeight="lg">
+                        {maxCredits}
+                    </Typography>
+                </Box>
+            </Box>
         </Card>
     );
 };

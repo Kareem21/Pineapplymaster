@@ -1,6 +1,6 @@
-import './home.css'; // At the top
-
-import React from 'react';
+// Home.jsx
+import './home.css';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
 import Typewriter from 'typewriter-effect';
 
@@ -10,6 +10,47 @@ import HowItWorks from './howItWorks.jsx';
 import PricingComponent from './pricingComponent.jsx';
 import CompaniesCarousel from './companiesCarousel.jsx';
 import ComparisonSection from './comparisonSection.jsx';
+
+const AnimatedNumber = ({ endValue }) => {
+    const [count, setCount] = useState(0);
+    const countRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    animateValue(0, endValue, 2000);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (countRef.current) {
+            observer.observe(countRef.current);
+        }
+
+        return () => {
+            if (countRef.current) {
+                observer.unobserve(countRef.current);
+            }
+        };
+    }, [endValue]);
+
+    const animateValue = (start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            setCount(Math.floor(progress * (end - start) + start));
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+
+    return <span ref={countRef}>{count.toLocaleString()}</span>;
+};
 
 const Home = () => {
     return (
@@ -47,14 +88,15 @@ const Home = () => {
 
                         <Typography
                             variant="h3"
+                            className="jobs-counter"
                             sx={{
                                 marginTop: '2rem',
-                                fontSize: '1.5rem',
+                                fontSize: '2rem',
                                 fontWeight: 600,
                                 color: '#492d6f',
                             }}
                         >
-                            Auto-applier currently in Beta
+                            Over <AnimatedNumber endValue={18425} /> jobs scraped weekly
                         </Typography>
 
                         <Box sx={{ marginTop: '2rem' }}>
@@ -90,18 +132,18 @@ const Home = () => {
 
             <Box
                 sx={{
-                    padding: '2rem 1rem',
+                    padding: '4rem 2rem',
                     textAlign: 'center',
                     backgroundColor: '#fafafa',
                 }}
             >
                 <Typography
-                    variant="h5"
+                    variant="h4"
                     sx={{
-                        fontSize: '1.5rem',
-                        fontWeight: 600,
+                        fontSize: '2.5rem',
+                        fontWeight: 700,
                         color: '#492d6f',
-                        marginBottom: '1rem',
+                        marginBottom: '2rem',
                     }}
                 >
                     Focus on what matters most
@@ -109,12 +151,29 @@ const Home = () => {
                 <Typography
                     variant="body1"
                     sx={{
-                        fontSize: '1.1rem',
+                        fontSize: '1.4rem',
                         color: '#555',
                         lineHeight: '1.8',
+                        marginBottom: '3rem',
+                        maxWidth: '900px',
+                        margin: '0 auto',
                     }}
                 >
                     Let us handle the tedious applications while you concentrate on networking, interview prep, and advancing your skills.
+                </Typography>
+
+                <Typography
+                    variant="h5"
+                    sx={{
+                        fontSize: '2rem',
+                        fontWeight: 600,
+                        color: '#492d6f',
+                        maxWidth: '1000px',
+                        margin: '3rem auto 0',
+                        lineHeight: '1.4',
+                    }}
+                >
+                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. In one place for your convenience
                 </Typography>
             </Box>
 

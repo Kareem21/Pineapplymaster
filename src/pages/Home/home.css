@@ -1,3 +1,4 @@
+/* home.css */
 body {
     margin: 0;
     padding: 0;
@@ -22,52 +23,40 @@ body {
     justify-content: center;
 }
 
-/*0: '#CCD3DD',*/
-/*100: '#B5BCCE',*/
-/*200: '#9FA3BE',*/
-/*300: '#8888AF',*/
-/*400: '#72719F',*/
-/*500: '#635B8F',*/
-/*600: '#55447F',*/
-/*700: '#492D6F',*/
-/*800: '#3E175F',*/
-/*900: '#35004E',*/
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust height as needed */
+    height: 100vh;
     text-align: center;
     padding: 20px;
 }
+
 .text-container {
-    max-width: 1200px; /* Adjust width as needed */
+    max-width: 1200px;
 }
+
 h1 {
-    font-size: 4em; /* Adjust font-size as needed /
-font-weight: bold;
-margin: 0.5em 0; / Adjust spacing as needed */
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0.5em 0;
 }
+
 p {
-    font-size: 1.2em; /* Adjust font-size as needed /
-margin-bottom: 2em; / Adjust spacing as needed */
+    font-size: 1.2em;
+    margin-bottom: 2em;
 }
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
 }
+
 .cta-button {
     padding: 1em 2em;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.cta-button:hover {
-    background-color: #333; /* Adjust hover color as needed */
-}
-
-.cta-button {
     transition: all 0.3s ease !important;
 }
 
@@ -76,13 +65,65 @@ margin-bottom: 2em; / Adjust spacing as needed */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* If the CardComponent is not applying these styles, you might need to add a class to it and use these styles */
 .card-component {
     transition: all 0.3s ease !important;
-    background-color: purple !important; /* Ensure the background stays purple */
+    background-color: purple !important;
 }
 
 .card-component:hover {
     transform: translateY(-5px) !important;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+}
+
+.jobs-counter {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-hero-container {
+    position: relative;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+.home-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.features-overlay {
+    background-color: white;
+    padding: 4rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-hero-container {
+        min-height: 60vh;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
 }

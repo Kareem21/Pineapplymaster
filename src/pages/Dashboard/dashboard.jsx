@@ -1,11 +1,10 @@
-// Updated Dashboard.jsx
+
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Modal } from '@mui/joy';
-import './dashboard.css';
-import supabase from '../../../supabaseClient'; // Replace with your actual Supabase client initialization
-import CreditsCard from './creditsCard.jsx';
-import PreferredTitlesCard from './preferredTitlesCard.jsx';
-import JobsInQueue from './jobsInQueue.jsx';
+import { Box, Typography, Button, Modal, Card } from '@mui/joy';
+import CreditsCard from './CreditsCard';
+import PreferredTitlesCard from './PreferredTitlesCard';
+import JobsInQueue from './JobsInQueue';
+import ResumeCard from './ResumeCard';
 
 const Dashboard = () => {
     const [jobs, setJobs] = useState([]);
@@ -28,88 +27,79 @@ const Dashboard = () => {
         fetchJobs();
     }, []);
 
-    const handleShowMore = (job) => {
-        setSelectedJob(job);
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-        setSelectedJob(null);
-    };
-
     return (
-        <div className="dashboard-container">
-            <h1>User Dashboard</h1>
-            <div className="dashboard-cards">
+        <Box sx={{ p: 2, backgroundColor: 'background.surface' }}>
+            <Typography level="h4" sx={{ mb: 2 }}>
+                Dashboard
+            </Typography>
+
+            <Box sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    sm: '1fr 1fr',
+                    md: '1fr 1fr 1fr'
+                },
+                gap: 2,
+                mb: 3
+            }}>
                 <CreditsCard />
+                <ResumeCard />
                 <PreferredTitlesCard />
-            </div>
-            <JobsInQueue />
-            <Box className="dashboard-cards">
-                {jobs.map((job, index) => (
-                    <Box key={index} className="job-card">
-                        <Typography variant="h5" className="job-title">
-                            {job.title}
-                        </Typography>
-                        <Typography variant="body1" className="job-company">
-                            {job.company_name}
-                        </Typography>
-                        <Typography variant="body2" className="job-location">
-                            {job.location}
-                        </Typography>
-                        <Typography variant="body2" className="job-experience">
-                            {job.experience_level}
-                        </Typography>
-                        <Typography variant="body2" className="job-description">
-                            {job.description.length > 100
-                                ? `${job.description.slice(0, 100)}...`
-                                : job.description}
-                        </Typography>
-                        {job.description.length > 100 && (
-                            <Button
-                                size="small"
-                                variant="outlined"
-                                onClick={() => handleShowMore(job)}
-                            >
-                                Show More
-                            </Button>
-                        )}
-                        <Typography variant="caption" className="job-listed-at">
-                            Listed At: {new Date(job.listed_at).toLocaleDateString()}
-                        </Typography>
-                    </Box>
-                ))}
             </Box>
 
-            {selectedJob && (
-                <Modal open={isModalOpen} onClose={handleCloseModal}>
-                    <Box className="modal-content">
-                        <Typography variant="h4" className="modal-title">
-                            {selectedJob.title}
+            <JobsInQueue />
+
+            <Box sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    sm: '1fr 1fr',
+                    md: '1fr 1fr 1fr'
+                },
+                gap: 2,
+                mt: 3
+            }}>
+                {jobs.map((job, index) => (
+                    <Card
+                        key={index}
+                        variant="outlined"
+                        sx={{
+                            p: 2,
+                            '&:hover': {
+                                boxShadow: 'md',
+                                borderColor: 'primary.500'
+                            }
+                        }}
+                    >
+                        <Typography level="h6" sx={{ mb: 1 }}>
+                            {job.title}
                         </Typography>
-                        <Typography variant="body1" className="modal-company">
-                            {selectedJob.company_name}
+                        <Typography sx={{ color: 'primary.600', mb: 1 }}>
+                            {job.company_name}
                         </Typography>
-                        <Typography variant="body2" className="modal-location">
-                            {selectedJob.location}
+                        <Typography level="body2" sx={{ mb: 0.5 }}>
+                            📍 {job.location}
                         </Typography>
-                        <Typography variant="body2" className="modal-experience">
-                            {selectedJob.experience_level}
+                        <Typography level="body2" sx={{ mb: 1 }}>
+                            {job.experience_level}
                         </Typography>
-                        <Typography variant="body2" className="modal-description">
-                            {selectedJob.description}
+                        <Typography level="body2" sx={{
+                            mb: 2,
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                        }}>
+                            {job.description}
                         </Typography>
-                        <Typography variant="caption" className="modal-listed-at">
-                            Listed At: {new Date(selectedJob.listed_at).toLocaleDateString()}
+                        <Typography level="body3" sx={{ color: 'neutral.600' }}>
+                            Posted: {new Date(job.listed_at).toLocaleDateString()}
                         </Typography>
-                        <Button onClick={handleCloseModal} variant="contained">
-                            Close
-                        </Button>
-                    </Box>
-                </Modal>
-            )}
-        </div>
+                    </Card>
+                ))}
+            </Box>
+        </Box>
     );
 };
 
