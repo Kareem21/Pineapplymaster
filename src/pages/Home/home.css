@@ -58,10 +58,7 @@ margin-bottom: 2em; / Adjust spacing as needed */
     grid-gap: 20px;
 }
 .cta-button {
-    padding: 1em 2em; /* Adjust padding as needed /
-font-size: 1em; / Adjust font-size as needed /
-background-color: #000; / Adjust color as needed /
-color: #fff; / Adjust text color as needed */
+    padding: 1em 2em;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
