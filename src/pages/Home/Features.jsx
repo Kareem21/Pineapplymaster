@@ -1,22 +1,9 @@
+// Features.jsx
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
+import './Features.css'; // Ensure this imports your CSS file for styling
 
 const Features = () => {
-    const features = [
-        {
-            title: 'One click to automatically apply',
-            desc: 'With the click of a button, you can apply to 100s or 1000s of job applications that are relevant for you.',
-        },
-        {
-            title: 'Never miss a job posting again',
-            desc: 'Upload your CV once and let Pineapply find the best roles for you by matching your skills and experience across all sources.',
-        },
-        {
-            title: 'Find the most up to date jobs',
-            desc: 'Pineapply will scan all the sources for listings every hour!',
-        },
-    ];
-
     return (
         <Box className="features-container" sx={{ width: '100%', overflow: 'hidden' }}>
             <Box
@@ -49,9 +36,22 @@ const Features = () => {
                         width: '100%',
                     }}
                 >
-                    {features.map((feature, index) => (
+                    {[
+                        {
+                            title: 'One click to automatically apply',
+                            desc: 'With the click of a button, you can apply to 100s or 1000s of job applications that are relevant for you.',
+                        },
+                        {
+                            title: 'Never miss a job posting again',
+                            desc: 'Upload your CV once and let Pineapply find the best roles for you by matching your skills and experience across all sources.',
+                        },
+                        {
+                            title: 'Find the most up to date jobs',
+                            desc: 'Pineapply will scan all the sources for listings every hour!',
+                        },
+                    ].map((feature, index) => (
                         <Box
-                            key={index} // Add a unique key prop here
+                            key={index}
                             className="feature-item"
                             sx={{
                                 backgroundColor: '#fff',
