@@ -83,3 +83,48 @@
         gap: 20px;
     }
 }
+.social-links {
+    display: flex;
+    gap: 20px; /* Add spacing between the icons */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust size */
+    height: 50px; /* Adjust size */
+    background-color: #f8dc14; /* Optional: Add background for contrast */
+    border-radius: 50%; /* Circular icons */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    background-color: #f4b400; /* Change background on hover */
+}
+
+.social-links a svg {
+    width: 30px; /* Larger icon size */
+    height: 30px; /* Larger icon size */
+    fill: #38175b; /* Icon color */
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        gap: 15px; /* Adjust spacing for smaller screens */
+    }
+
+    .social-links a {
+        width: 40px; /* Smaller size on mobile */
+        height: 40px;
+    }
+
+    .social-links a svg {
+        width: 25px; /* Smaller icon size */
+        height: 25px;
+    }
+}

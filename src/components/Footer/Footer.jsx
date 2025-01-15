@@ -40,7 +40,6 @@ function Footer() {
                         <h3>Contact</h3>
                         <ul>
                             <li><Email /> support@pineapply.ai</li>
-                            <li><Phone /> +971 50 XXX XXXX</li>
                             <li>Dubai, United Arab Emirates</li>
                         </ul>
                     </div>

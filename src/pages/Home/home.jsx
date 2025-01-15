@@ -2,7 +2,6 @@ import './home.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
 
-/** Custom Components */
 import Features from './Features';
 import HowItWorks from './howItWorks.jsx';
 import PricingComponent from './pricingComponent.jsx';
