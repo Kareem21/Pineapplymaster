@@ -8,31 +8,16 @@ import HowItWorks from './howItWorks.jsx';
 import PricingComponent from './pricingComponent.jsx';
 import CompaniesCarousel from './companiesCarousel.jsx';
 import ComparisonSection from './comparisonSection.jsx';
-
 const AnimatedNumber = ({ endValue }) => {
     const [count, setCount] = useState(0);
-    const countRef = useRef(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    animateValue(0, endValue, 2000);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (countRef.current) {
-            observer.observe(countRef.current);
+        if (!hasAnimated) {
+            setHasAnimated(true); // Ensure the animation runs only once
+            animateValue(0, endValue, 2000);
         }
-
-        return () => {
-            if (countRef.current) {
-                observer.unobserve(countRef.current);
-            }
-        };
-    }, [endValue]);
+    }, [endValue, hasAnimated]);
 
     const animateValue = (start, end, duration) => {
         let startTimestamp = null;
@@ -47,8 +32,9 @@ const AnimatedNumber = ({ endValue }) => {
         window.requestAnimationFrame(step);
     };
 
-    return <span ref={countRef}>{count.toLocaleString()}</span>;
+    return <span>{count.toLocaleString()}</span>;
 };
+
 
 const Home = () => {
     return (
@@ -68,14 +54,16 @@ const Home = () => {
                         <Typography
                             variant="h3"
                             sx={{
-                                fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem' },
-                                marginBottom: 0,
+                                fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' },
+                                lineHeight: { xs: '1.3', md: '1.2' },
+                                marginTop: { xs: '1rem', md: '0' },
                                 fontWeight: 700,
                                 color: '#492d6f',
                             }}
                         >
-                            Your personal A.I recruiter
+                            Your personal A.I Recruiter
                         </Typography>
+
 
                         <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
                             <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>

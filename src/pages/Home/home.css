@@ -11,47 +11,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.home-hero-overlay {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: transparent;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    width: 100%;
+    margin-top: 4rem; /* Space to avoid overlapping navbar */
 }
 
-.jobs-counter {
-    animation: fadeIn 1s ease-out;
+.home-hero-overlay h3 {
+    font-size: 3rem; /* Larger text for desktop */
+    line-height: 1.2;
+    font-weight: bold;
+    color: #492d6f;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+@media (max-width: 768px) {
+    .home-hero-overlay h3 {
+        font-size: 2.2rem; /* Large text on mobile */
+        line-height: 1.3;
+        margin-top: 1rem; /* Prevent overlapping navbar */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
-/* Updated Features Section */
 .features-overlay {
     position: relative;
     background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     width: 100%;
     padding: 5rem 0;
     min-height: 100vh;
@@ -62,7 +45,7 @@ body {
         background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow-mobile.png');
         background-size: cover;
         background-position: center;
-        background-attachment: scroll; /* Use scroll for better performance */
+        background-attachment: scroll; /* Prevent issues on iOS */
     }
 }
 
@@ -93,10 +76,49 @@ body {
     letter-spacing: 2px;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .features-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-title {
+        font-size: 1.75rem;
+    }
+}
+
+.jobs-counter {
+    animation: fadeIn 1s ease-out;
+    font-size: 1.5rem; /* Adjust for mobile */
+    margin-top: 2rem;
+    color: #492d6f;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background-color: #f8dc14;
+    color: #492d6f;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
 .feature-item {
@@ -126,29 +148,3 @@ body {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
 }
-
-@media (max-width: 1024px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    .features-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .features-title {
-        font-size: 1.75rem;
-    }
-
-    .feature-item h4 {
-        font-size: 1.25rem;
-    }
-
-    .feature-item p {
-        font-size: 1rem;
-    }
-}
-
