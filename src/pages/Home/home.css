@@ -267,3 +267,39 @@ body {
         min-width: unset;
     }
 }
+@media (max-width: 768px) {
+    .home-hero-container {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .home-hero-overlay h3 {
+        font-size: 2rem; /* Adjust font size for mobile */
+        line-height: 1.4; /* Improve readability */
+        word-wrap: break-word; /* Prevent text overflow */
+    }
+
+    .home-hero-overlay .hero-content {
+        padding: 1rem;
+    }
+
+    .home-cta-button {
+        font-size: 1rem; /* Smaller button text for mobile */
+        padding: 0.8rem 1.5rem;
+    }
+
+    .jobs-counter {
+        font-size: 1.5rem; /* Adjust counter size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-hero-overlay h3 {
+        font-size: 1.8rem; /* Further reduce font size for smaller screens */
+    }
+
+    .home-cta-button {
+        font-size: 0.9rem; /* Compact button text for very small devices */
+        padding: 0.6rem 1.2rem;
+    }
+}
