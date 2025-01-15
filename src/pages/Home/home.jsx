@@ -1,8 +1,6 @@
-// Home.jsx
 import './home.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
-import Typewriter from 'typewriter-effect';
 
 /** Custom Components */
 import Features from './Features';
@@ -69,19 +67,15 @@ const Home = () => {
                     >
                         <Typography
                             variant="h3"
-                            className="home-hero-overlay"
                             sx={{
-                                fontSize: { xs: '2rem', sm: '2.5rem', md: '4rem' },
-                                lineHeight: { xs: '1.4', sm: '1.5', md: '1.6' },
-                                marginBottom: { xs: '1rem', md: '0' },
+                                fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem' },
+                                marginBottom: 0,
                                 fontWeight: 700,
                                 color: '#492d6f',
-                                wordBreak: 'break-word',
                             }}
                         >
                             Your personal A.I recruiter
                         </Typography>
-
 
                         <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
                             <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>
@@ -129,6 +123,7 @@ const Home = () => {
 
             <CompaniesCarousel />
 
+            {/* Features Section */}
             <div className="features-overlay">
                 <Features />
             </div>
