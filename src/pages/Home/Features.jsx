@@ -1,3 +1,4 @@
+// Features.jsx
 import React from 'react';
 import './Features.css';
 
@@ -18,7 +19,7 @@ const Features = () => {
     ];
 
     return (
-        <div className="features-overlay">
+        <div className="features-section">
             <div className="features-container">
                 <div className="features-content">
                     <h2 className="features-title">Features</h2>
@@ -32,7 +33,7 @@ const Features = () => {
                     </div>
                 </div>
             </div>
-            <div className="mobile-feature-image"></div>
+            <div className="features-image"></div>
         </div>
     );
 };

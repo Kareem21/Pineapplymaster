@@ -1,39 +1,31 @@
 import './home.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
-
 import Features from './Features';
 import HowItWorks from './howItWorks.jsx';
 import PricingComponent from './pricingComponent.jsx';
 import CompaniesCarousel from './companiesCarousel.jsx';
 import ComparisonSection from './comparisonSection.jsx';
+
 const AnimatedNumber = ({ endValue }) => {
     const [count, setCount] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
-        if (!hasAnimated) {
-            setHasAnimated(true); // Ensure the animation runs only once
-            animateValue(0, endValue, 2000);
-        }
-    }, [endValue, hasAnimated]);
-
-    const animateValue = (start, end, duration) => {
         let startTimestamp = null;
-        const step = (timestamp) => {
+        const duration = 2000;
+        const animateValue = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            setCount(Math.floor(progress * (end - start) + start));
+            setCount(Math.floor(progress * endValue));
             if (progress < 1) {
-                window.requestAnimationFrame(step);
+                requestAnimationFrame(animateValue);
             }
         };
-        window.requestAnimationFrame(step);
-    };
+        requestAnimationFrame(animateValue);
+    }, [endValue]);
 
     return <span>{count.toLocaleString()}</span>;
 };
-
 
 const Home = () => {
     return (
@@ -60,16 +52,21 @@ const Home = () => {
                                 color: '#492d6f',
                             }}
                         >
-                            Your personal A.I Recruiter
+                            Your Personal A.I Recruiter
                         </Typography>
 
-
-                        <Box sx={{ minHeight: '3rem', marginTop: '1rem' }}>
-                            <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#492d6f' }}>
-                                Automate your entire Dubai job search. Apply to every single
-                                relevant job for you.<br /> Find a job in the UAE 8x faster.
-                            </Typography>
-                        </Box>
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                fontSize: '1.5rem',
+                                marginTop: '1rem',
+                                color: '#492d6f',
+                            }}
+                        >
+                            Automate your Dubai job search and apply to every single relevant job.
+                            <br />
+                            Find a job in the UAE 8x faster.
+                        </Typography>
 
                         <Typography
                             variant="h3"
@@ -84,37 +81,40 @@ const Home = () => {
                             Over <AnimatedNumber endValue={18425} /> jobs scraped weekly
                         </Typography>
 
-                        <Box sx={{ marginTop: '2rem' }}>
-                            <Button
-                                variant="solid"
-                                className="home-cta-button"
-                                sx={{
-                                    fontSize: '1.2rem',
-                                    padding: '1rem 2rem',
+                        <Button
+                            variant="solid"
+                            className="home-cta-button"
+                            sx={{
+                                fontSize: '1.2rem',
+                                padding: '1rem 2rem',
+                                backgroundColor: '#f8dc14',
+                                color: '#492d6f',
+                                borderRadius: '8px',
+                                marginTop: '2rem',
+                                '&:hover': {
                                     backgroundColor: '#f8dc14',
-                                    color: '#492d6f',
-                                    borderRadius: '8px',
-                                    '&:hover': {
-                                        backgroundColor: '#f8dc14',
-                                        transform: 'translateY(-3px)',
-                                        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    },
-                                }}
-                            >
-                                Try Pineapply here
-                            </Button>
-                        </Box>
+                                    transform: 'translateY(-3px)',
+                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                                },
+                            }}
+                        >
+                            Try Pineapply here
+                        </Button>
                     </Box>
                 </div>
             </div>
 
+            {/* Companies Carousel */}
             <CompaniesCarousel />
 
+            {/* Features Section */}
             <div className="features-wrapper">
                 <div className="features-overlay">
                     <Features />
                 </div>
             </div>
+
+            {/* How It Works Section */}
             <Box
                 sx={{
                     padding: '4rem 2rem',
@@ -131,7 +131,7 @@ const Home = () => {
                         marginBottom: '2rem',
                     }}
                 >
-                    Focus on what matters most
+                    Focus on What Matters Most
                 </Typography>
                 <Typography
                     variant="body1"
@@ -144,7 +144,8 @@ const Home = () => {
                         margin: '0 auto',
                     }}
                 >
-                    Let us handle the tedious applications while you concentrate on networking, interview prep, and advancing your skills.
+                    Let us handle the tedious applications while you concentrate on networking,
+                    interview prep, and advancing your skills.
                 </Typography>
 
                 <Typography
@@ -158,14 +159,13 @@ const Home = () => {
                         lineHeight: '1.4',
                     }}
                 >
-                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. All in one place for your convenience
+                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. All in one place for your convenience.
                 </Typography>
             </Box>
 
+            {/* Additional Sections */}
             <HowItWorks />
-
             <PricingComponent />
-
             <ComparisonSection />
         </Box>
     );
