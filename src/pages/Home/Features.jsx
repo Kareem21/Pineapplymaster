@@ -18,18 +18,21 @@ const Features = () => {
     ];
 
     return (
-        <div className="features-container">
-            <div className="features-content">
-                <h2 className="features-title">Features</h2>
-                <div className="features-grid">
-                    {featuresData.map((feature, index) => (
-                        <div key={index} className="feature-item">
-                            <h4>{feature.title}</h4>
-                            <p>{feature.desc}</p>
-                        </div>
-                    ))}
+        <div className="features-overlay">
+            <div className="features-container">
+                <div className="features-content">
+                    <h2 className="features-title">Features</h2>
+                    <div className="features-grid">
+                        {featuresData.map((feature, index) => (
+                            <div key={index} className="feature-item">
+                                <h4>{feature.title}</h4>
+                                <p>{feature.desc}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
+            <div className="mobile-feature-image"></div>
         </div>
     );
 };

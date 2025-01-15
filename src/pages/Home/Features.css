@@ -1,12 +1,10 @@
 .features-overlay {
     position: relative;
-    background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     width: 100%;
-    padding: 5rem 0;
     min-height: 100vh;
+    background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png') fixed center;
+    background-size: cover;
+    padding: 5rem 0;
 }
 
 .features-container {
@@ -15,16 +13,8 @@
     color: #fff;
     position: relative;
     z-index: 1;
-}
-
-.features-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    background-color: rgba(56, 23, 91, 0.9);
+    padding: 3rem 1rem;
 }
 
 .features-content {
@@ -32,8 +22,13 @@
     max-width: 1200px;
     padding: 3rem;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-feature-image {
+    display: none;
 }
 
 .features-title {
@@ -58,6 +53,7 @@
     color: #fff;
     text-align: center;
     transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .feature-item:hover {
@@ -78,7 +74,6 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -92,7 +87,25 @@
 
 @media (max-width: 768px) {
     .features-overlay {
-        padding: 3rem 1rem;
+        background: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .features-container {
+        order: 1;
+        position: relative;
+        background-color: rgba(56, 23, 91, 1);
+    }
+
+    .mobile-feature-image {
+        display: block;
+        order: 2;
+        width: 100%;
+        height: 60vh;
+        background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow-mobile.png') center center/cover no-repeat;
+        margin-top: -1px; /* Prevent gap between sections */
     }
 
     .features-grid {
@@ -123,5 +136,9 @@
 
     .feature-item p {
         font-size: 1rem;
+    }
+
+    .mobile-feature-image {
+        height: 50vh; /* Slightly smaller for very small screens */
     }
 }

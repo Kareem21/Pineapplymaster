@@ -110,11 +110,11 @@ const Home = () => {
 
             <CompaniesCarousel />
 
-            {/* Features Section */}
-            <div className="features-overlay">
-                <Features />
+            <div className="features-wrapper">
+                <div className="features-overlay">
+                    <Features />
+                </div>
             </div>
-
             <Box
                 sx={{
                     padding: '4rem 2rem',
