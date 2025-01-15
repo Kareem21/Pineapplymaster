@@ -1,6 +1,8 @@
+
 import React from 'react';
 import './Footer.css';
-import { Instagram, Facebook } from "@mui/icons-material";
+import { Instagram, Facebook, Email, Phone, LinkedIn } from "@mui/icons-material";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -8,15 +10,22 @@ function Footer() {
             <div className="footer-content">
                 <div className="footer-left">
                     <h2>Pineapply</h2>
-                    <p>Find job listings from multiple sites and automatically apply, all in one place.</p>
-                    <p>Copyright 2024 Pineapply</p>
+                    <p>Your AI-powered job search assistant. Find and apply to the best opportunities in Dubai and across the UAE.</p>
+                    <p>© 2024 Pineapply. All rights reserved.</p>
+                    <div className="social-links">
+                        <Link to="#"><Instagram /></Link>
+                        <Link to="#"><Facebook /></Link>
+                        <Link to="#"><LinkedIn /></Link>
+                    </div>
                 </div>
                 <div className="footer-right">
                     <div className="footer-column">
-                        <h3>Explore</h3>
+                        <h3>Platform</h3>
                         <ul>
                             <li>Features</li>
+                            <li>How it Works</li>
                             <li>Pricing</li>
+                            <li>FAQ</li>
                         </ul>
                     </div>
                     <div className="footer-column">
@@ -24,15 +33,15 @@ function Footer() {
                         <ul>
                             <li>Privacy Policy</li>
                             <li>Terms of Service</li>
-                            <li>Contact us</li>
+                            <li>Cookie Policy</li>
                         </ul>
                     </div>
                     <div className="footer-column">
-                        <h3>Contact us</h3>
+                        <h3>Contact</h3>
                         <ul>
-                            <li><Instagram /> Instagram</li>
-                            <li><Facebook /> Facebook</li>
-                            <li>Email: kareemy9000@gmail.com</li>
+                            <li><Email /> support@pineapply.ai</li>
+                            <li><Phone /> +971 50 XXX XXXX</li>
+                            <li>Dubai, United Arab Emirates</li>
                         </ul>
                     </div>
                 </div>

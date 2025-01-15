@@ -173,7 +173,7 @@ const Home = () => {
                         lineHeight: '1.4',
                     }}
                 >
-                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. In one place for your convenience
+                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. All in one place for your convenience
                 </Typography>
             </Box>
 

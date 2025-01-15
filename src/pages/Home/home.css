@@ -1,78 +1,34 @@
-/* home.css */
+css
 body {
     margin: 0;
     padding: 0;
 }
 
-.home-container {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.home-hero-container {
+    position: relative;
     min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.content-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.home-hero-overlay {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: transparent;
+}
+
+.hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     text-align: center;
-    padding: 20px;
-}
-
-.text-container {
-    max-width: 1200px;
-}
-
-h1 {
-    font-size: 4em;
-    font-weight: bold;
-    margin: 0.5em 0;
-}
-
-p {
-    font-size: 1.2em;
-    margin-bottom: 2em;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-}
-
-.cta-button {
-    padding: 1em 2em;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease !important;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-}
-
-.card-component {
-    transition: all 0.3s ease !important;
-    background-color: purple !important;
-}
-
-.card-component:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+    width: 100%;
 }
 
 .jobs-counter {
@@ -90,40 +46,224 @@ p {
     }
 }
 
-.home-hero-container {
+.features-overlay {
     position: relative;
-    min-height: 80vh;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    background: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 5rem 0;
+    min-height: 100vh;
 }
 
-.home-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.features-container {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(56, 23, 91, 0.9);
+    padding: 3rem 1rem;
+}
+
+.features-content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 3rem;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #f8dc14;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.feature-item {
+    border: 2px solid #f8dc14;
+    padding: 2rem;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.feature-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #f8dc14;
+    font-weight: 600;
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer {
+    background-color: #38175b;
+    color: #fff;
+    padding: 60px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-left h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f8dc14;
+}
+
+.footer-left p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.footer-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.footer-column {
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #f8dc14;
+    font-weight: 600;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 1rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
 }
 
-.features-overlay {
-    background-color: white;
-    padding: 4rem 0;
+.footer-column li:hover {
+    color: #f8dc14;
 }
 
-/* Responsive adjustments */
+.footer-column li svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: #fff;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f8dc14;
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .features-title {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .home-hero-container {
-        min-height: 60vh;
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
     }
 
-    h1 {
-        font-size: 2.5em;
+    .features-overlay {
+        padding: 3rem 1rem;
+        background-attachment: scroll;
     }
 
-    p {
-        font-size: 1em;
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-content {
+        padding: 2rem 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-title {
+        font-size: 1.75rem;
+    }
+
+    .feature-item {
+        padding: 1.5rem;
+    }
+
+    .feature-item h4 {
+        font-size: 1.25rem;
+    }
+
+    .footer-left {
+        min-width: unset;
     }
 }

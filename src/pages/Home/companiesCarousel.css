@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     gap: 4rem;
-    animation: slideLoop 40s linear infinite;
+    animation: slideLoop 10s linear infinite;
 }
 
 .logo-item {
