@@ -14,19 +14,16 @@ const PricingComponent = () => {
             title: '100 Credits',
             costPerApplication: '40',
             price: 'AED 100',
-            description: 'Perfect for passive job seekers',
         },
         '250credits': {
             title: '250 Credits',
             costPerApplication: '40',
             price: 'AED 250',
-            description: 'Great for those actively applying and wanting to apply to more jobs',
         },
         '500credits': {
             title: '500 Credits',
             costPerApplication: '20',
             price: 'AED 500',
-            description: 'Ideal for people who urgently need to land a role',
         },
     };
 

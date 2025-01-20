@@ -1,3 +1,4 @@
+// Home.jsx
 import './home.css';
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
@@ -119,7 +120,6 @@ const Home = () => {
                 sx={{
                     padding: '4rem 2rem',
                     textAlign: 'center',
-                    backgroundColor: '#fafafa',
                 }}
             >
                 <Typography

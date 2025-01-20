@@ -58,12 +58,26 @@
 }
 
 .pricing-card {
-    background-color: #f8dc14;
+    position: relative;
     padding: 3rem 2rem;
     border-radius: 16px;
     margin-top: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://ekqpaxwmblelcxbfxdun.supabase.co/storage/v1/object/public/test/robot3__yellow.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }
 
 .pricing-card:hover {
@@ -125,5 +139,14 @@
     .option-button {
         width: 100%;
         max-width: 300px;
+    }
+
+    .pricing-card {
+        min-height: 500px; /* Adjust this value based on your needs */
+    }
+
+    .pricing-card::before {
+        background-size: 100% 100%;
+        background-position: center;
     }
 }
