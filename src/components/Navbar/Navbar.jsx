@@ -52,15 +52,15 @@ const Navbar = () => {
                         </Stack>
 
                         {/* Center Logo */}
-                        <Link href="/">
-                            <Typography level="title-lg" color="appTheme">
+                        <Link href="/" underline="none">
+                            <Typography level="title-lg" color="appTheme" sx={{ textDecoration: 'none', cursor: 'pointer' }}>
                                 Pineapply AI
                             </Typography>
                         </Link>
 
                         {/* Right Links */}
                         <Stack sx={{ display: { xs: 'none', md: 'flex' } }} direction="row" gap={2}>
-                            <Link href="/login">
+                            <Link href="/">
                                 <Button color="appTheme" variant="outlined">
                                     Log in
                                 </Button>
