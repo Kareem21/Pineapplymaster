@@ -122,22 +122,22 @@ const Navbar = () => {
                                 Home
                             </Button>
                         </Link>
-                        <Link href="/uae-labour-laws">
+                        <Link href="/">
                             <Button sx={{ width: '100%' }} color="neutral" variant="plain">
                                 UAE Labor Bot
                             </Button>
                         </Link>
-                        <Link href="/contact">
+                        <Link href="/Contact">
                             <Button sx={{ width: '100%' }} color="neutral" variant="plain">
                                 Contact
                             </Button>
                         </Link>
-                        <Link href="/login">
+                        <Link href="/">
                             <Button sx={{ width: '100%' }} color="appTheme" variant="solid">
                                 Log in
                             </Button>
                         </Link>
-                        <Link href="/register">
+                        <Link href="/">
                             <Button sx={{ width: '100%' }} color="appTheme" variant="solid">
                                 Create an account
                             </Button>
