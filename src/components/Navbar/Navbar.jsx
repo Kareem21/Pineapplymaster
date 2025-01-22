@@ -27,7 +27,7 @@ const Navbar = () => {
                             <Link href="/">
                                 <Typography level="body-sm">UAE Labor laws bot</Typography>
                             </Link>
-                            <Link href="/Contact">
+                            <Link href="/">
                                 <Typography level="body-sm">Contact</Typography>
                             </Link>
                             <Box
@@ -129,7 +129,7 @@ const Navbar = () => {
                                 UAE Labor Bot
                             </Button>
                         </Link>
-                        <Link href="/Contact">
+                        <Link href="/">
                             <Button sx={{ width: '100%' }} color="neutral" variant="plain">
                                 Contact
                             </Button>
