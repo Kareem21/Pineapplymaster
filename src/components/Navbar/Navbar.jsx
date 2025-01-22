@@ -24,10 +24,10 @@ const Navbar = () => {
                             <Link href="/">
                                 <Typography level="body-sm">Home</Typography>
                             </Link>
-                            <Link href="/uae-labour-laws">
+                            <Link href="/">
                                 <Typography level="body-sm">UAE Labor laws bot</Typography>
                             </Link>
-                            <Link href="/contact">
+                            <Link href="/Contact">
                                 <Typography level="body-sm">Contact</Typography>
                             </Link>
                             <Box
