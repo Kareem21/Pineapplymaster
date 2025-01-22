@@ -58,7 +58,7 @@ const Navbar = () => {
 
                         {/* Right Links */}
                         <Stack sx={{ display: { xs: 'none', md: 'flex' } }} direction="row" gap={2}>
-                            <Link href="/login">
+                            <Link href="/">
                                 <Button color="appTheme" variant="outlined">
                                     Log in
                                 </Button>
