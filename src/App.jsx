@@ -8,6 +8,7 @@ import theme from './Theme';
 import Home from './pages/Home/home';
 import Dashboard from '../src/pages/Dashboard/dashboard';
 import Contact from './pages/Contact/Contact';
+import { Analytics } from "@vercel/analytics/react"
 
 import './GlobalStyles.css';
 
