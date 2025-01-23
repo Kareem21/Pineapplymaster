@@ -44,6 +44,7 @@ function App() {
                 <Box component="footer" sx={{ width: '100%' }}>
                     <Footer />
                 </Box>
+                <Analytics />
             </Box>
         </CssVarsProvider>
     );
