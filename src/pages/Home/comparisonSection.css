@@ -14,7 +14,7 @@
 .section-title {
     font-size: 2.5rem !important;
     font-weight: 700 !important;
-    color: #f8dc14 !important;
+    color: whitesmoke !important;
     margin-bottom: 1rem !important;
 }
 
@@ -52,7 +52,7 @@
 .comparison-heading {
     font-size: 1.75rem !important;
     font-weight: 700 !important;
-    color: #f8dc14 !important;
+    color: whitesmoke !important;
     margin-bottom: 0.5rem !important;
     text-transform: uppercase;
     letter-spacing: 1px;

@@ -1,4 +1,3 @@
-// Home.jsx
 import './home.css';
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Button } from '@mui/joy';
@@ -25,24 +24,19 @@ const AnimatedNumber = ({ endValue }) => {
         requestAnimationFrame(animateValue);
     }, [endValue]);
 
-    return <span>{count.toLocaleString()}</span>;
+    return (
+        <span className="animated-number">
+            {count.toLocaleString()}
+        </span>
+    );
 };
 
 const Home = () => {
     return (
         <Box sx={{ width: '100%', overflow: 'hidden' }}>
-            {/* Hero Section */}
             <div className="home-hero-container">
                 <div className="home-hero-overlay">
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            textAlign: 'center',
-                            padding: '2rem',
-                        }}
-                    >
+                    <Box className="hero-content">
                         <Typography
                             variant="h3"
                             sx={{
@@ -69,18 +63,11 @@ const Home = () => {
                             Find a job in the UAE 8x faster.
                         </Typography>
 
-                        <Typography
-                            variant="h3"
-                            className="jobs-counter"
-                            sx={{
-                                marginTop: '2rem',
-                                fontSize: '2rem',
-                                fontWeight: 600,
-                                color: '#492d6f',
-                            }}
-                        >
-                            Over <AnimatedNumber endValue={18425} /> jobs scraped weekly
-                        </Typography>
+                        <div className="stats-container">
+                            <Typography component="div" className="jobs-stat">
+                                Over <AnimatedNumber endValue={18425} /> jobs scraped weekly
+                            </Typography>
+                        </div>
 
                         <Button
                             variant="solid"
@@ -105,23 +92,15 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Companies Carousel */}
             <CompaniesCarousel />
 
-            {/* Features Section */}
             <div className="features-wrapper">
                 <div className="features-overlay">
                     <Features />
                 </div>
             </div>
 
-            {/* How It Works Section */}
-            <Box
-                sx={{
-                    padding: '4rem 2rem',
-                    textAlign: 'center',
-                }}
-            >
+            <Box sx={{ padding: '4rem 2rem', textAlign: 'center' }}>
                 <Typography
                     variant="h4"
                     sx={{
@@ -147,23 +126,8 @@ const Home = () => {
                     Let us handle the tedious applications while you concentrate on networking,
                     interview prep, and advancing your skills.
                 </Typography>
-
-                <Typography
-                    variant="h5"
-                    sx={{
-                        fontSize: '2rem',
-                        fontWeight: 600,
-                        color: '#492d6f',
-                        maxWidth: '1000px',
-                        margin: '3rem auto 0',
-                        lineHeight: '1.4',
-                    }}
-                >
-                    Pineapply has the UAE's largest job database, with over <AnimatedNumber endValue={18425} /> jobs scraped weekly. All in one place for your convenience.
-                </Typography>
             </Box>
 
-            {/* Additional Sections */}
             <HowItWorks />
             <PricingComponent />
             <ComparisonSection />

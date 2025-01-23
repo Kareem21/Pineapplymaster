@@ -30,6 +30,39 @@ body {
     width: 100%;
 }
 
+.stats-container {
+    margin: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.stats-container.secondary {
+    margin: 3rem auto 0;
+    max-width: 1000px;
+}
+
+.jobs-stat {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: #492d6f !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 3rem;
+    white-space: nowrap;
+}
+
+.animated-number {
+    display: inline-block;
+    min-width: 5ch;
+    text-align: center;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 .jobs-counter {
     animation: fadeIn 1s ease-out;
 }
@@ -66,6 +99,23 @@ body {
 
 /* Mobile styles - with proper background handling */
 @media (max-width: 768px) {
+    .home-hero-container {
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .jobs-stat {
+        font-size: 1.5rem !important;
+        flex-direction: column;
+        height: auto;
+        gap: 0.25rem;
+    }
+
+    .animated-number {
+        min-width: 4ch;
+    }
+
     .features-overlay {
         position: relative;
         width: 100%;
@@ -277,6 +327,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    .home-hero-overlay {
+        padding: 1rem;
+    }
+
+    .jobs-stat {
+        font-size: 1.25rem !important;
+    }
+
     .features-title {
         font-size: 1.75rem;
     }
