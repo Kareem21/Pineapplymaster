@@ -36,7 +36,7 @@ function LaborBotPage() {
             </div>
 
             <div className="faq-section">
-                <h3>Common FAQs</h3>
+                <h3>ComNmon FAQs</h3>
                 <ul>
                     <li>What is the minimum wage in the UAE?</li>
                     <li>How to sponsor a family member in the UAE?</li>

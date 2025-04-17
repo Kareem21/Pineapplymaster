@@ -1,104 +1,135 @@
-
-import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Modal, Card } from '@mui/joy';
+import React from 'react'; // No need for useState, useEffect here anymore unless for other purposes
+import { Box, Typography, CircularProgress } from '@mui/joy'; // Removed unused imports
+// Keep card imports
 import CreditsCard from './creditsCard';
 import PreferredTitlesCard from './preferredTitlesCard';
-import JobsInQueue from './jobsInQueue';
 import ResumeCard from './resumeCard';
+// Import the new components/hooks
+import JobsInQueue from './jobsInQueue';
+import JobDetailPanel from './JobDetailPanel'; // Import the extracted panel
+import useJobSearch from '../../hooks/useJobSearch'; // Adjust path
+import useJobDetailPanelState from '../../hooks/useJobDetailPanelState'; // Adjust path
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'; // Adjust path
+
+// Define constants outside component
+const DASHBOARD_PADDING = 2;
 
 const Dashboard = () => {
-    const [jobs, setJobs] = useState([]);
-    const [selectedJob, setSelectedJob] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // --- Use Custom Hooks for State and Logic ---
+    const {
+        jobs,
+        isLoading: isLoadingJobs, // Renamed to avoid conflict if other loading states exist
+        isLoadingMore,
+        error: searchError,
+        hasMore,
+        search, // Function to trigger search
+        loadMore, // Function to load more jobs
+    } = useJobSearch();
 
-    const fetchJobs = async () => {
-        const { data, error } = await supabase
-            .from('scrapedjobsln')
-            .select('title, company_name, location, experience_level, description, listed_at');
+    const {
+        selectedJob,
+        isDetailOpen,
+        openJobDetail,
+        closeJobDetail,
+    } = useJobDetailPanelState();
 
-        if (error) {
-            console.error('Error fetching jobs:', error);
-        } else {
-            setJobs(data);
-        }
-    };
+    // Apply body scroll lock when detail panel is open
+    useBodyScrollLock(isDetailOpen);
 
-    useEffect(() => {
-        fetchJobs();
-    }, []);
+    // Determine if a search has been attempted (based on hook state)
+    // We know a search was attempted if it's loading, or finished loading (jobs array exists), or has an error.
+    // Note: useJobSearch should ideally return a 'status' ('idle', 'loading', 'success', 'error') for cleaner state checking.
+    // For now, we derive it. We need a state to track if initial load is done or if search was triggered.
+    // Let's refine useJobSearch slightly to return initial search state or add a simple flag here.
+    // Simplest approach for now: assume search attempted if isLoading, jobs.length>0 or searchError exists
+    const hasSearched = isLoadingJobs || jobs.length > 0 || !!searchError;
 
     return (
-        <Box sx={{ p: 2, backgroundColor: 'background.surface' }}>
-            <Typography level="h4" sx={{ mb: 2 }}>
+        <Box sx={{
+            p: DASHBOARD_PADDING,
+            backgroundColor: 'background.surface',
+            position: 'relative',
+            height: '100%',
+            overflowY: 'auto', // Allow dashboard scroll if content overflows viewport
+            display: 'flex',
+            flexDirection: 'column',
+            // No padding change needed here now, panel handles its own space
+        }}>
+            <Typography level="h4" sx={{ mb: 2, flexShrink: 0 }}> {/* Prevent shrinking */}
                 Dashboard
             </Typography>
 
+            {/* --- Top Cards Grid --- */}
             <Box sx={{
                 display: 'grid',
-                gridTemplateColumns: {
-                    xs: '1fr',
-                    sm: '1fr 1fr',
-                    md: '1fr 1fr 1fr'
-                },
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
                 gap: 2,
-                mb: 3
+                mb: 3,
+                flexShrink: 0, // Prevent shrinking
             }}>
-                <CreditsCard />
                 <ResumeCard />
-                <PreferredTitlesCard />
+                {/* Pass the search function from the hook */}
+                <PreferredTitlesCard onSearch={search} />
+                <CreditsCard />
             </Box>
 
-            <JobsInQueue />
+            {/* --- Job Application Queue Section --- */}
+            <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}> {/* Takes remaining space */}
+                {/* Show only after initial load state known or search attempted */}
+                {hasSearched && (
+                    <Typography level="h5" sx={{ mt: 2, mb: 2, flexShrink: 0 }}>
+                        Job application queue
+                    </Typography>
+                )}
 
-            <Box sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                    xs: '1fr',
-                    sm: '1fr 1fr',
-                    md: '1fr 1fr 1fr'
-                },
-                gap: 2,
-                mt: 3
-            }}>
-                {jobs.map((job, index) => (
-                    <Card
-                        key={index}
-                        variant="outlined"
-                        sx={{
-                            p: 2,
-                            '&:hover': {
-                                boxShadow: 'md',
-                                borderColor: 'primary.500'
-                            }
-                        }}
-                    >
-                        <Typography level="h6" sx={{ mb: 1 }}>
-                            {job.title}
+                {/* Display Loading State */}
+                {isLoadingJobs && (
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexGrow: 1, p: 3 }}>
+                        <CircularProgress />
+                    </Box>
+                )}
+
+                {/* Display Error State */}
+                {!isLoadingJobs && searchError && (
+                    <Box sx={{ textAlign: 'center', mt: 2, mb: 4, p: 2, bgcolor: 'danger.softBg', borderRadius: 'sm' }}>
+                        <Typography color="danger">
+                            Error: {searchError || 'Could not load jobs.'}
                         </Typography>
-                        <Typography sx={{ color: 'primary.600', mb: 1 }}>
-                            {job.company_name}
-                        </Typography>
-                        <Typography level="body2" sx={{ mb: 0.5 }}>
-                            📍 {job.location}
-                        </Typography>
-                        <Typography level="body2" sx={{ mb: 1 }}>
-                            {job.experience_level}
-                        </Typography>
-                        <Typography level="body2" sx={{
-                            mb: 2,
-                            display: '-webkit-box',
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden'
-                        }}>
-                            {job.description}
-                        </Typography>
-                        <Typography level="body3" sx={{ color: 'neutral.600' }}>
-                            Posted: {new Date(job.listed_at).toLocaleDateString()}
-                        </Typography>
-                    </Card>
-                ))}
+                        {/* Optionally add a retry button */}
+                    </Box>
+                )}
+
+                {/* Display Job Queue (only if not loading initial jobs and no error) */}
+                {!isLoadingJobs && !searchError && hasSearched && (
+                    <>
+                        {jobs.length > 0 ? (
+                            <JobsInQueue
+                                matchedJobs={jobs}
+                                onJobClick={openJobDetail} // Pass panel opening function
+                                // Pass pagination props
+                                onLoadMore={loadMore}
+                                hasMore={hasMore}
+                                isLoadingMore={isLoadingMore}
+                            />
+                        ) : (
+                            // Only show 'no jobs found' if search finished and returned empty
+                            <Box sx={{ textAlign: 'center', mt: 2, mb: 4 }}>
+                                <Typography>
+                                    No jobs found matching your search criteria.
+                                </Typography>
+                            </Box>
+                        )}
+                    </>
+                )}
             </Box>
+
+
+            {/* --- Render Extracted Job Detail Panel --- */}
+            <JobDetailPanel
+                job={selectedJob}
+                isOpen={isDetailOpen}
+                onClose={closeJobDetail}
+            />
         </Box>
     );
 };

@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/contact",
+      "destination": "/serverless/api/contact.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}

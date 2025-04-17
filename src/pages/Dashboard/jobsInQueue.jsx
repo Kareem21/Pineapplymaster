@@ -1,127 +1,138 @@
-// src/components/Dashboard/JobsInQueue.jsx
 import React, { useState } from 'react';
-import {
-    Card,
-    Typography,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemContent,
-    Avatar,
-    Checkbox,
-    Switch,
-    Box,
-    Button,
-    Tooltip,
-    IconButton
-} from '@mui/joy';
-import WorkIcon from '@mui/icons-material/Work';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import StopIcon from '@mui/icons-material/Stop';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { Box, Typography, Sheet, Divider, Tabs, TabList, Tab, TabPanel, Button, CircularProgress } from '@mui/joy';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import JobCard from './JobCard';
 
-const JobsInQueue = () => {
-    const [jobsInQueue, setJobsInQueue] = useState([
-        { id: 1, title: "Senior Network Engineer", company: "TechCorp", selected: false },
-        { id: 2, title: "Network Security Specialist", company: "SecureNet", selected: false },
-        { id: 3, title: "Cloud Network Engineer", company: "CloudTech", selected: false },
-        { id: 4, title: "Network Operations Manager", company: "NetOps Inc.", selected: false },
-        { id: 5, title: "Wireless Network Engineer", company: "MobileNet", selected: false },
-    ]);
-    const [isAutopilot, setIsAutopilot] = useState(true);
+// --- Styles ---
+const columnContentStyles = {
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 1.5,
+    p: 1,
+    borderRadius: 'sm',
+    minHeight: '150px',
+};
 
-    const handleJobSelect = (id) => {
-        setJobsInQueue(jobsInQueue.map(job =>
-            job.id === id ? { ...job, selected: !job.selected } : job
-        ));
-    };
+// --- Component ---
+const defaultOnJobClick = () => {};
+const defaultOnLoadMore = async () => {}; // Async default for potential await
 
-    const handleToggleAutopilot = () => {
-        setIsAutopilot(!isAutopilot);
-    };
+const JobsInQueue = ({
+                         matchedJobs = [],
+                         onJobClick = defaultOnJobClick,
+                         // Props for pagination/loading
+                         onLoadMore = defaultOnLoadMore,
+                         hasMore = false,
+                         isLoadingMore = false,
+                     }) => {
+    // --- Hooks ---
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-    const handleStartAutoApply = () => {
-        console.log("Starting auto-apply process");
-    };
+    // --- Data ---
+    // Define columns (assuming other columns remain empty for now)
+    const columns = [
+        { title: 'Matched jobs', shortTitle: 'Matched', jobs: matchedJobs || [] },
+        { title: 'Auto-applying', shortTitle: 'Auto-applying', jobs: [] },
+        { title: 'Applied', shortTitle: 'Applied', jobs: [] },
+    ];
 
-    const handleStopAutoApply = () => {
-        console.log("Stopping auto-apply process");
-    };
-
-    return (
-        <Card variant="outlined" sx={{ mt: 3 }}>
-            <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Typography level="h4">Jobs in Queue</Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography sx={{ mr: 2 }}>
-                        {isAutopilot ? 'Autopilot' : 'Manual mode'}
-                        <Tooltip title="Click to learn more" variant="soft">
-                            <IconButton sx={{ ml: 1 }}>
-                                <HelpOutlineIcon />
-                            </IconButton>
-                        </Tooltip>
+    // --- Content Renderer ---
+    // Pass isLoadingMore and hasMore specific to the Matched column
+    const renderColumnContent = (jobs, columnTitle, isMatchedColumn) => (
+        <Box
+            sx={{
+                ...columnContentStyles,
+                maxHeight: isMobile ? 'calc(75vh - 150px)' : '70vh', // Adjusted height slightly
+                position: 'relative', // For potential absolute positioning of loader
+            }}
+        >
+            {/* Job Cards */}
+            {jobs && jobs.length > 0 ? (
+                jobs.map((job) => (
+                    <JobCard
+                        key={job.id || `job-${columnTitle}-${job.title}-${job.company_name}`}
+                        job={job}
+                        onClick={() => onJobClick(job)}
+                    />
+                ))
+            ) : (
+                // Show only if not loading more initially
+                !isLoadingMore && (
+                    <Typography level="body-sm" sx={{ textAlign: 'center', color: 'text.disabled', mt: 3, fontStyle: 'italic' }}>
+                        No jobs in this stage.
                     </Typography>
-                    <Switch checked={isAutopilot} onChange={handleToggleAutopilot} />
-                </Box>
-            </Box>
-            <List>
-                {jobsInQueue.map((job) => (
-                    <ListItem key={job.id}>
-                        <ListItemButton
-                            onClick={() => !isAutopilot && handleJobSelect(job.id)}
-                            sx={{
-                                mb: 1,
-                                bgcolor: '#f1f5f9',
-                                borderRadius: 2,
-                                '&:hover': {
-                                    bgcolor: '#e2e8f0',
-                                },
-                            }}
-                        >
-                            {!isAutopilot && (
-                                <Checkbox
-                                    checked={job.selected}
-                                    onChange={(e) => {
-                                        e.stopPropagation();
-                                        handleJobSelect(job.id);
-                                    }}
-                                    sx={{ mr: 2 }}
-                                />
-                            )}
-                            <Avatar sx={{ mr: 2, bgcolor: '#3b82f6' }}>
-                                <WorkIcon />
-                            </Avatar>
-                            <ListItemContent>
-                                <Typography level="body1" fontWeight="medium">
-                                    {job.title}
-                                </Typography>
-                                <Typography level="body2">{job.company}</Typography>
-                            </ListItemContent>
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between' }}>
+                )
+            )}
+
+            {/* Load More Button / Indicator for Matched Column */}
+            {isMatchedColumn && hasMore && (
                 <Button
-                    variant="solid"
+                    variant="outlined"
                     color="primary"
-                    startDecorator={<PlayArrowIcon />}
-                    onClick={handleStartAutoApply}
-                    sx={{ width: '48%', height: '50px' }}
+                    onClick={onLoadMore}
+                    disabled={isLoadingMore}
+                    loading={isLoadingMore}
+                    fullWidth
+                    sx={{ mt: 1.5, mx: 'auto', maxWidth: '200px' }} // Style button
                 >
-                    Start Auto-Applying
+                    Load More
                 </Button>
-                <Button
-                    variant="solid"
-                    color="danger"
-                    startDecorator={<StopIcon />}
-                    onClick={handleStopAutoApply}
-                    sx={{ width: '48%', height: '50px' }}
-                >
-                    Stop Auto-applying
-                </Button>
-            </Box>
-        </Card>
+            )}
+            {isMatchedColumn && isLoadingMore && ( // Show spinner when loading more
+                <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                    <CircularProgress size="sm" />
+                </Box>
+            )}
+        </Box>
+    );
+
+    // --- Render Logic ---
+
+    // Mobile View: Tabs
+    if (isMobile) {
+        return (
+            <Tabs
+                aria-label="Job queue tabs"
+                value={activeTabIndex}
+                onChange={(event, newValue) => setActiveTabIndex(newValue)}
+                sx={{ width: '100%', bgcolor: 'background.surface', borderRadius: 'md', boxShadow: 'sm' }}
+            >
+                <TabList sticky="top" variant="soft" sx={{ '--List-padding': '4px', '--List-gap': '4px', p: 0.5 }}>
+                    {columns.map((column, index) => (
+                        <Tab key={column.shortTitle} value={index} sx={{ flexGrow: 1, justifyContent: 'center' }}>
+                            {column.shortTitle} ({index === 0 ? column.jobs.length : 0}) {/* Show count only for matched */}
+                        </Tab>
+                    ))}
+                </TabList>
+                {columns.map((column, index) => (
+                    <TabPanel key={column.title} value={index} sx={{ p: 1.5, backgroundColor: 'background.level1' }}>
+                        {renderColumnContent(column.jobs, column.title, index === 0)} {/* Pass isMatchedColumn=true only for index 0 */}
+                    </TabPanel>
+                ))}
+            </Tabs>
+        );
+    }
+
+    // Desktop View: Grid
+    return (
+        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2.5, alignItems: 'start', width: '100%' }}>
+            {columns.map((column, index) => (
+                <Sheet key={column.title} variant="outlined" sx={{ p: 1.5, borderRadius: 'md', display: 'flex', flexDirection: 'column', gap: 1.5, backgroundColor: 'background.level1', height: '100%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 0.5 }}>
+                        <Typography level="title-md" sx={{ color: 'text.primary' }}>{column.title}</Typography>
+                        <Typography level="body-xs" sx={{ color: 'text.tertiary' }}>({index === 0 ? column.jobs.length : 0})</Typography> {/* Show count only for matched */}
+                    </Box>
+                    <Divider />
+                    {renderColumnContent(column.jobs, column.title, index === 0)} {/* Pass isMatchedColumn=true only for index 0 */}
+                </Sheet>
+            ))}
+        </Box>
     );
 };
 

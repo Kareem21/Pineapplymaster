@@ -1,16 +1,174 @@
-/* Mobile drawer style overrides (if needed) */
-.drawer-content {
-    background-color: white;
-    box-shadow: none;
+.footer {
+    background-color: #38175b;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-.drawer-content button {
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
-    text-align: left;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-/* Custom transitions for buttons */
-.button-hover:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    transition: background-color 0.2s ease-in-out;
+/* Stats Section */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot.yellow {
+    background-color: #f8dc14;
+}
+
+.dot.green {
+    background-color: #4CAF50;
+}
+
+.dot.blue {
+    background-color: #2196F3;
+}
+
+.stats-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Main Content Section */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin: auto 0;
+}
+
+.content-left {
+    flex: 1;
+}
+
+.content-left h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.content-left p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.content-right {
+    display: flex;
+    align-items: center;
+}
+
+.get-started-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.get-started-btn:hover {
+    background-color: #333;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.chat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .content-left h1 {
+        font-size: 36px;
+    }
+
+    .content-left p br {
+        display: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

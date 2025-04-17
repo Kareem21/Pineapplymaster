@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/joy';
 import './howItWorks.css';
+
 const steps = [
     {
         title: 'Upload your CV',
@@ -21,12 +22,12 @@ const steps = [
 
 const HowItWorks = () => {
     return (
-        <Box className="how-it-works-container">
+        <Box className="how-it-works-container" sx={{ mb: 0 }}> {/* Added margin-bottom: 0 */}
             <Typography
                 variant="h3"
                 sx={{
                     fontWeight: 700,
-                    color: '#ffffff',
+                    color: '#492d6f',
                     textAlign: 'center',
                     marginBottom: '2rem',
                     fontSize: { xs: '2rem', sm: '2.5rem' },

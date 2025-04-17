@@ -4,8 +4,8 @@ import React from 'react';
 import { Card, Typography, CircularProgress, Box } from '@mui/joy';
 
 const CreditsCard = () => {
-    const totalCredits = 50;
-    const maxCredits = 100;
+    const totalCredits = 33;
+    const maxCredits = 50;
     const percentage = (totalCredits / maxCredits) * 100;
 
     return (

@@ -1,47 +1,88 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(120deg, #f1e7ff 0%, #fff 100%);
-    height: 80vh;
-}
-
-.login-box {
-    background-color: #fff;
-    border: 2px solid #dcd0f7;
-    border-radius: 8px;
-    padding: 40px;
-    width: 300px;
+/* Login Page Styles */
+.message-container {
+    min-height: 20px;
+    margin-top: 16px;
     text-align: center;
 }
 
-.login-box h2 {
-    margin-bottom: 20px;
-    color: #4b2db6;
+.message {
+    color: #4caf50;
 }
 
-.google-btn,
-.magic-link-btn {
-    background-color: #6b38f3;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    cursor: pointer;
+.error-message {
+    color: #f44336;
 }
 
-.separator {
-    margin: 10px 0;
-    font-weight: bold;
-    color: #999;
+/* Override Google Button Styles */
+.google-button {
+    width: 100% !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px !important;
 }
 
-.login-box input[type="email"] {
-    width: 100%;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
+/* Link Styles */
+a {
+    color: #492d6f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #38175b;
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-card {
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Form Input Focus States */
+.MuiInput-root:focus-within {
+    border-color: #492d6f !important;
+    box-shadow: 0 0 0 2px rgba(73, 45, 111, 0.2) !important;
+}
+
+/* Custom Button Styles */
+.MuiButton-root {
+    text-transform: none !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+}
+
+/* Divider Styles */
+.MuiDivider-root {
+    margin: 20px 0 !important;
+    color: #666 !important;
+}
+
+/* Typography Adjustments */
+.MuiTypography-h4 {
+    color: #492d6f !important;
+    margin-bottom: 8px !important;
+}
+
+.MuiTypography-body1 {
+    color: #666 !important;
+    margin-bottom: 24px !important;
+}
+
+/* Card Shadow Effect */
+.MuiCard-root {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+.MuiCard-root:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15) !important;
 }

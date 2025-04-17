@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
-import { Button, Container, DialogTitle, Drawer, IconButton, Link, ModalClose, Sheet, Stack, Typography, Box } from '@mui/joy';
-
+import {
+    Button,
+    Container,
+    DialogTitle,
+    Drawer,
+    IconButton,
+    Link,
+    ModalClose,
+    Sheet,
+    Stack,
+    Typography,
+    Box
+} from '@mui/joy';
+import Contact from '../../pages/Contact/Contact'
 const Navbar = () => {
-    const [open, setOpen] = useState(false); // Drawer state
+    const [open, setOpen] = useState(false);
 
     return (
         <>
-            {/* Top Navbar */}
             <Sheet
-                color="appTheme"
                 sx={{
+                    backgroundColor: 'white',
                     height: '64px',
                     position: 'sticky',
                     top: 0,
@@ -27,7 +38,7 @@ const Navbar = () => {
                             <Link href="/">
                                 <Typography level="body-sm">UAE Labor laws bot</Typography>
                             </Link>
-                            <Link href="/">
+                            <Link href="/Contact">
                                 <Typography level="body-sm">Contact</Typography>
                             </Link>
                             <Box
@@ -43,7 +54,7 @@ const Navbar = () => {
                                     cursor: 'pointer',
                                     transition: 'background-color 0.3s',
                                     '&:hover': {
-                                        backgroundColor: '#9370db', // Slightly darker purple on hover
+                                        backgroundColor: '#9370db',
                                     },
                                 }}
                             >
@@ -51,9 +62,33 @@ const Navbar = () => {
                             </Box>
                         </Stack>
 
-                        {/* Center Logo */}
-                        <Link href="/" underline="none">
-                            <Typography level="title-lg" color="appTheme" sx={{ textDecoration: 'none', cursor: 'pointer' }}>
+                        {/* Center Logo & Branding */}
+                        <Link
+                            href="/"
+                            underline="none"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 1
+                            }}
+                        >
+                            <Box
+                                component="img"
+                                src="/logo.svg"
+                                alt="Pineapply AI Logo"
+                                sx={{
+                                    width: '32px',
+                                    height: 'auto'
+                                }}
+                            />
+                            <Typography
+                                level="title-lg"
+                                color="appTheme"
+                                sx={{
+                                    display: 'inline-block',
+                                    whiteSpace: 'nowrap'
+                                }}
+                            >
                                 Pineapply AI
                             </Typography>
                         </Link>
@@ -86,14 +121,13 @@ const Navbar = () => {
             {/* Mobile Drawer */}
             <Drawer
                 size="md"
-                color="neutral"
                 open={open}
                 anchor="top"
                 onClose={() => setOpen(false)}
                 slotProps={{
                     content: {
                         sx: {
-                            bgcolor: 'transparent',
+                            bgcolor: 'white',
                             p: { md: 3, sm: 0 },
                             boxShadow: 'none',
                         },
@@ -114,8 +148,24 @@ const Navbar = () => {
                 >
                     <Stack sx={{ p: 3 }} gap={1}>
                         <ModalClose />
-                        <DialogTitle sx={{ justifyContent: 'center', mb: 3 }}>
-                            <Typography color="appTheme" level="title-lg">
+                        <DialogTitle sx={{ justifyContent: 'center', mb: 3, textAlign: 'center' }}>
+                            <Box
+                                component="img"
+                                src="/logo.svg"
+                                alt="Pineapply AI Logo"
+                                sx={{
+                                    width: '32px',
+                                    height: 'auto'
+                                }}
+                            />
+                            <Typography
+                                level="title-lg"
+                                color="appTheme"
+                                sx={{
+                                    display: 'inline-block',
+                                    whiteSpace: 'nowrap'
+                                }}
+                            >
                                 Pineapply AI
                             </Typography>
                         </DialogTitle>
@@ -129,7 +179,7 @@ const Navbar = () => {
                                 UAE Labor Bot
                             </Button>
                         </Link>
-                        <Link href="/">
+                        <Link href="/contact">
                             <Button sx={{ width: '100%' }} color="neutral" variant="plain">
                                 Contact
                             </Button>

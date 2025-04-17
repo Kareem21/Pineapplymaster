@@ -1,6 +1,6 @@
-// Features.jsx
 import React from 'react';
 import './Features.css';
+import { Typography } from '@mui/joy';  // Import if you haven't already
 
 const Features = () => {
     const featuresData = [
@@ -22,12 +22,40 @@ const Features = () => {
         <div className="features-section">
             <div className="features-container">
                 <div className="features-content">
-                    <h2 className="features-title">Features</h2>
+                    <Typography
+                        component="h2"
+                        className="features-title"
+                        sx={{
+                            fontFamily: 'var(--font-primary)',
+                            fontWeight: 800  // Extra Bold for main title
+                        }}
+                    >
+                        Features
+                    </Typography>
                     <div className="features-grid">
                         {featuresData.map((feature, index) => (
                             <div key={index} className="feature-item">
-                                <h4>{feature.title}</h4>
-                                <p>{feature.desc}</p>
+                                <div className="feature-icon">
+                                    <div className="icon-circle"></div>
+                                </div>
+                                <Typography
+                                    component="h4"
+                                    sx={{
+                                        fontFamily: 'var(--font-primary)',
+                                        fontWeight: 700  // Bold for feature titles
+                                    }}
+                                >
+                                    {feature.title}
+                                </Typography>
+                                <Typography
+                                    component="p"
+                                    sx={{
+                                        fontFamily: 'var(--font-primary)',
+                                        fontWeight: 400  // Regular for descriptions
+                                    }}
+                                >
+                                    {feature.desc}
+                                </Typography>
                             </div>
                         ))}
                     </div>
